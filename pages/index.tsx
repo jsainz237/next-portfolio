@@ -5,6 +5,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Intro />
+      <div style={{ height: 250, width: '100vw', background: 'red' }} />
     </>
   )
 }

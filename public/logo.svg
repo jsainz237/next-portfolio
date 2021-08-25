@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="173" height="128.09" viewBox="0 0 173 128.09">
+  <g id="Group_2" data-name="Group 2" transform="translate(-45 -23)">
+    <path id="Union_3" data-name="Union 3" d="M4251,260V164h-21a30,30,0,0,1-30-30v-2h83V260Zm-51,0V228h51v32Z" transform="translate(-4155 -109)" fill="current"/>
+    <g id="Group_1" data-name="Group 1" transform="translate(134.663 23)">
+      <path id="Rectangle_6" data-name="Rectangle 6" d="M0,0H32a0,0,0,0,1,0,0V53A30,30,0,0,1,2,83H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(0.337 32) rotate(-90)" fill="current"/>
+      <path id="Union_1" data-name="Union 1" d="M0,80.059V48.037H51.234V32.026H83.257V51.239h-.023a30,30,0,0,1-29.978,28.82ZM0,32.026V0H53.257a30,30,0,0,1,30,30v2.023Z" transform="translate(0.002 48.031)" fill="current"/>
+    </g>
+    <path id="Path_1" data-name="Path 1" d="M-4014-21c.143-4.007-2.671-8-6.133-8s3.859-4.767,3.859-4.767l9.967,8.327Z" transform="translate(4199.996 132)" fill="current"/>
+    <path id="Path_2" data-name="Path 2" d="M-4014-33.767c.143,4.007-2.671,8-6.133,8s3.859,4.767,3.859,4.767l9.967-8.327Z" transform="translate(4199.996 144.767)" fill="current"/>
+  </g>
+</svg>

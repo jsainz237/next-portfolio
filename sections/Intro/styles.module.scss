@@ -1,5 +1,13 @@
-.intro-canvas-container {
+.intro-container {
     height: 100vh;
     width: 100vw;
-    background-color: rgb(233, 233, 233);
+    background-color: #d0d0d0;
+}
+
+.intro-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
