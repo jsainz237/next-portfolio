@@ -6,7 +6,7 @@ type CanvasProps = Omit<R3FCanvasProps & React.RefAttributes<HTMLCanvasElement>,
 export function withCanvas(Component: React.ComponentType, className: string, props?: CanvasProps): React.ComponentType {
     return () => (
         <div className={className}>
-            <Canvas {...props}>
+            <Canvas shadows={true} {...props}>
                 <Component />
             </Canvas>
         </div>
