@@ -1,3 +1,5 @@
+$intro-font-color: #716f6f;
+
 .intro-container {
     height: 100vh;
     width: 100vw;
@@ -6,8 +8,19 @@
 
 .intro-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 100%;
-    width: 100%;
-}
+
+    h1 {
+        font-family: 'Roboto Slab', serif;
+        font-size: 4rem;
+        color: $intro-font-color;
+    }
+
+    p {
+        color: $intro-font-color;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+};
