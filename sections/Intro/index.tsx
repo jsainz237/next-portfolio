@@ -38,6 +38,10 @@ const _Intro: React.FC = () => {
                     <h1>&#128075; Hey, I'm Jesse!</h1>
                     <p>I'm a full stack web developer based in Austin, TX</p>
                 </Container>
+                <div className={styles['intro-break']}>
+                    <div className={`${styles['break-half']} ${styles['left']}`} />
+                    <div className={`${styles['break-half']} ${styles['right']}`} />
+                </div>
             </Html>
             
             {/* 3D Canvas Components */}
@@ -55,4 +59,6 @@ const _Intro: React.FC = () => {
     )
 }
 
-export const Intro = withCanvas(_Intro, styles['intro-container']);
+export const Intro = withCanvas(_Intro, styles['intro-container'], {
+    style: { overflow: 'unset' },
+});
