@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+
+.skills-container {
+    position: relative;
+    height: 75vh;
+    width: 100%;
+    background-color: $offset-bg;
+    padding-top: calc(8rem);
+}

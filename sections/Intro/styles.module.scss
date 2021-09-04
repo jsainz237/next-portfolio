@@ -1,11 +1,9 @@
 @import '../../styles/variables.scss';
 
-$intro-font-color: #716f6f;
-
 .intro-container {
     height: 100vh;
     width: 100vw;
-    background-color: #C8C6C6;
+    background-color: $bg;
 }
 
 .intro-content {
@@ -17,36 +15,12 @@ $intro-font-color: #716f6f;
     h1 {
         font-family: 'Roboto Slab', serif;
         font-size: 4rem;
-        color: $intro-font-color;
+        color: $text-color;
     }
 
     p {
-        color: $intro-font-color;
+        color: $text-color;
         font-size: 1.5rem;
         font-weight: 400;
     }
 };
-
-.intro-break {
-    $section-height: 6rem;
-    display: inline-flex;
-    width: 100%;
-    position: absolute;
-    bottom: calc(#{$section-height} / -2);
-    left: 0;
-
-    .break-half {
-        width: 50%;
-        height: $section-height;
-        z-index: 100;
-        background-color: $primary;
-    
-        &.left {
-            transform: skewX(5deg) rotateZ(5deg);
-        }
-    
-        &.right {
-            transform: skewX(-5deg) rotateZ(-5deg);
-        }
-    }
-}

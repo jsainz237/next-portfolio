@@ -1,13 +1,18 @@
 import type { NextPage } from 'next'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { Intro } from '../sections/Intro';
+import { Skills } from '../sections/Skills';
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Intro />
-      <div style={{ height: 250, width: '100vw', background: 'red', zIndex: 0 }} />
-    </>
+    <Parallax pages={2}>
+      <ParallaxLayer speed={0.5}>
+        <Intro />
+      </ParallaxLayer>
+      <ParallaxLayer offset={0.99} speed={1}>
+        <Skills />
+      </ParallaxLayer>
+    </Parallax>
   )
 }
 
