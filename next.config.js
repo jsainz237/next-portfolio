@@ -1,5 +1,5 @@
 const withTM = require('next-transpile-modules')([
-  'three/examples/jsm/loaders/GLTFLoader'
+  'three/examples/jsm/loaders/GLTFLoader',
 ])
 
 /** @type {import('next').NextConfig} */
