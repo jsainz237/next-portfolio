@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import { withCanvas } from '../../components/withCanvas';
 import { Logo } from "../../components/Logo";
 import * as Ease from '../../_utils/ease-functions';
-import styles from './styles.module.scss';
+import * as Styled from './styles';
 
 const _Intro: React.FC = () => {
     const logo = useRef<THREE.Mesh>();
@@ -34,10 +34,10 @@ const _Intro: React.FC = () => {
         <>
             {/* Intro Content */}
             <Html fullscreen>
-                <Container className={styles['intro-content']}>
+                <Styled.IntroContent>
                     <h1>&#128075; Hey, I'm Jesse!</h1>
                     <p>I'm a full stack web developer based in Austin, TX</p>
-                </Container>
+                </Styled.IntroContent>
             </Html>
             
             {/* 3D Canvas Components */}
@@ -55,6 +55,6 @@ const _Intro: React.FC = () => {
     )
 }
 
-export const Intro = withCanvas(_Intro, styles['intro-container'], {
+export const Intro = withCanvas(_Intro, Styled.IntroContainer, {
     style: { overflow: 'unset' },
 });

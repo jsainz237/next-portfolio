@@ -5,24 +5,16 @@ import Container from "react-bootstrap/Container";
 import { SectionBreak } from "../../components/SectionBreak"
 import { SkillCard } from "../../components/SkillCard";
 import Icons from '../../components/Icon';
-import styles from './styles.module.scss';
+import * as Styled from './styles';
 
 export const Skills: React.FC = () => {
-    // const [bgText, setBgText] = useState<string | null>("react");
-
     return (
-        <div className={styles['skills-section-wrapper']}>
+        <Styled.SkillsSectionWrapper>
             <SectionBreak />
 
-            {/* { !bgText ? null : (
-                <div className={styles['skills-bg-text-container']}>
-                    {bgText.toUpperCase()}
-                </div>
-            )} */}
-
-            <Container className={styles['skills-container']}>
+            <Styled.SkillsContainer>
                 <h1>Skills</h1>
-                <div className={styles['skill-grid']}>
+                <Styled.SkillGrid>
                     {
                         Object.entries(Icons).map(([_, IconComponent], ind) => {
                             const section = ind + 1;
@@ -38,8 +30,8 @@ export const Skills: React.FC = () => {
                         })
                     }
                     
-                </div>
-            </Container>
-        </div>
+                </Styled.SkillGrid>
+            </Styled.SkillsContainer>
+        </Styled.SkillsSectionWrapper>
     )
 }

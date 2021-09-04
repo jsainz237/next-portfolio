@@ -1,4 +1,4 @@
-import styles from './styles.module.scss';
+import * as Styled from './styles'; 
 
 interface SectionBreakProps {
     color?: string;
@@ -6,9 +6,9 @@ interface SectionBreakProps {
 
 export const SectionBreak: React.FC<SectionBreakProps> = ({ color }) => {
     return (
-        <div className={styles['section-break']}>
-            <div className={`${styles['break-half']} ${styles['left']}`} style={{ color }} />
-            <div className={`${styles['break-half']} ${styles['right']}`} style={{ color }} />
-        </div>
+        <Styled.SectionBreak>
+            <Styled.BreakHalf left/>
+            <Styled.BreakHalf right/>
+        </Styled.SectionBreak>
     )
 }

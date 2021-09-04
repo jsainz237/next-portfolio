@@ -1,6 +1,9 @@
-import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
+
+import { theme } from '../styles/theme';
+import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,7 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Jesse Sainz</title>
         <meta charSet="UTF-8" />
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
     
