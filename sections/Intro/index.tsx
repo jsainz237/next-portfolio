@@ -8,6 +8,8 @@ import { withCanvas } from '../../components/withCanvas';
 import { Logo } from "../../components/Logo";
 import * as Ease from '../../_utils/ease-functions';
 import * as Styled from './styles';
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../styles/theme";
 
 const _Intro: React.FC = () => {
     const logo = useRef<THREE.Mesh>();
@@ -34,10 +36,12 @@ const _Intro: React.FC = () => {
         <>
             {/* Intro Content */}
             <Html fullscreen>
-                <Styled.IntroContent>
-                    <h1>&#128075; Hey, I'm Jesse!</h1>
-                    <p>I'm a full stack web developer based in Austin, TX</p>
-                </Styled.IntroContent>
+                <ThemeProvider theme={theme}>
+                    <Styled.IntroContent>
+                        <h1>&#128075; Hey, I'm Jesse!</h1>
+                        <p>I'm a full stack web developer based in Austin, TX</p>
+                    </Styled.IntroContent>
+                </ThemeProvider>
             </Html>
             
             {/* 3D Canvas Components */}

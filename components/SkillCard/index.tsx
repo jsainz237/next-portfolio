@@ -1,7 +1,9 @@
 import { HTMLProps } from 'react';
 import * as Styled from './styles';
 
-export const SkillCard: React.FC<HTMLProps<HTMLDivElement>> = ({ children, ...props }) => {
+type SkillCardProps = Styled.SkillCardStyleProps & HTMLProps<HTMLDivElement>;
+
+export const SkillCard: React.FC<SkillCardProps> = ({ children, ...props }) => {
     return (
         // @ts-ignore
         <Styled.SkillCard {...props}>

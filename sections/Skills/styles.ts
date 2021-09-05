@@ -3,20 +3,16 @@ import Container from 'react-bootstrap/Container';
 
 const dotSize = 1, dotSpace = 24;
 
-interface SkillsSectionWrapperProps {
-    dotColor?: string;
-    bg?: string;
-}
-export const SkillsSectionWrapper = styled.div<SkillsSectionWrapperProps>`
+export const SkillsSectionWrapper = styled.div`
     position: relative;
     height: auto;
     width: 100%;
     padding-top: 5rem;
 
-    background: ${({ bg, dotColor, theme }) => {
-        return `linear-gradient(90deg, ${bg || theme.offsetBg} ${dotSpace - dotSize}px, transparent 1%) center,`
-        + `linear-gradient(${bg || theme.offsetBg} ${dotSpace - dotSize}px, transparent 1%) center,`
-        + `${dotColor || theme.textColor}`;
+    background: ${({ theme }) => {
+        return `linear-gradient(90deg, ${theme.offsetBg} ${dotSpace - dotSize}px, transparent 1%) center,`
+        + `linear-gradient(${theme.offsetBg} ${dotSpace - dotSize}px, transparent 1%) center,`
+        + `${theme.textColor}`;
     }};
     background-size: ${() => `${dotSpace}px ${dotSpace}px`};
 `
@@ -25,7 +21,18 @@ export const SkillsContainer = styled(Container)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 3rem;
+    padding-top: 1rem;
+`
+
+export const TitleContainer = styled.div`
+    position: relative;
+    height: 3rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    overflow: hidden;
 `
 
 export const SkillGrid = styled.div`
@@ -36,16 +43,16 @@ export const SkillGrid = styled.div`
     grid-template-columns: repeat(5, auto);
     grid-template-rows: repeat(12, auto);
     grid-template-areas: 
-    "s1 s2 s4 s7 s9"
-    "s1 s2 s4 s7 s9"
-    "s1 s2 s4 s7 s9"
-    "s1 s2 s4 s7 s9"
-    "s1 s2 s5 s7 s9"
-    "s1 s2 s5 s7 s9"
-    "s1 s3 s5 s8 s9"
-    "s1 s3 s5 s8 s9"
-    "s1 s3 s6 s8 s9"
-    "s1 s3 s6 s8 s9"
-    "s1 s3 s6 s8 s9"
-    "s1 s3 s6 s8 s9";
+    "s0 s1 s3 s6 s8"
+    "s0 s1 s3 s6 s8"
+    "s0 s1 s3 s6 s8"
+    "s0 s1 s3 s6 s8"
+    "s0 s1 s4 s6 s8"
+    "s0 s1 s4 s6 s8"
+    "s0 s2 s4 s7 s8"
+    "s0 s2 s4 s7 s8"
+    "s0 s2 s5 s7 s8"
+    "s0 s2 s5 s7 s8"
+    "s0 s2 s5 s7 s8"
+    "s0 s2 s5 s7 s8";
 `
