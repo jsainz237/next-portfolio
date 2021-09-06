@@ -8,8 +8,8 @@ export const SkillCard = styled.div<SkillCardStyleProps>`
     justify-content: center;
     align-items: center;
 
-    height: 3.25rem;
-    width: 3.75rem;
+    height: 4.25rem;
+    width: 4.75rem;
     margin: 0.25rem;
 
     background-color: #eeeeee;
@@ -17,8 +17,8 @@ export const SkillCard = styled.div<SkillCardStyleProps>`
     cursor: pointer;
     grid-area: ${({ index }) => `s${index}`};
     align-self: ${({ index: ind }) => {
-        if(ind === 1 || ind === 6) return "flex-end";
-        if(ind === 2 || ind === 7) return "flex-start";
+        if([1, 3, 10, 13].includes(ind)) return "flex-end";
+        if([2, 5, 12, 14].includes(ind)) return "flex-start";
         return "center";
     }};
 

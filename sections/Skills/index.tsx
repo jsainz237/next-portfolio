@@ -32,14 +32,17 @@ export const Skills: React.FC = () => {
                 </Styled.TitleContainer>
                 <Styled.SkillGrid>
                     {
-                        Object.entries(Icons).map(([name, { Icon }], ind) => (
-                            <SkillCard key={ind} index={ind}
-                                onMouseEnter={() => set(name)}
-                                onMouseLeave={() => set("Skills")}
-                            >
-                                <Icon />
-                            </SkillCard>
-                        ))
+                        Object.entries(Icons).map(([name, { Icon }], ind) => {
+                            // if(name === "Bootstrap") { console.log(Icon.getBBox()); }
+                            return (
+                                <SkillCard key={ind} index={ind}
+                                    onMouseEnter={() => set(name)}
+                                    onMouseLeave={() => set("Skills")}
+                                >
+                                    <Icon />
+                                </SkillCard>
+                            )
+                        })
                     }
                     
                 </Styled.SkillGrid>
