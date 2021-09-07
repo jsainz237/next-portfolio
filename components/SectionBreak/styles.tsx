@@ -10,7 +10,7 @@ export const SectionBreak = styled.div`
     left: 0;
 `;
 
-interface BreakHalfProps {
+export interface BreakHalfProps {
     left?: boolean;
     right?: boolean;
     color?: string;

@@ -1,14 +1,10 @@
 import * as Styled from './styles'; 
 
-interface SectionBreakProps {
-    color?: string;
-}
-
-export const SectionBreak: React.FC<SectionBreakProps> = ({ color }) => {
+export const SectionBreak: React.FC<Pick<Styled.BreakHalfProps, 'color'>> = ({ color }) => {
     return (
         <Styled.SectionBreak>
-            <Styled.BreakHalf left/>
-            <Styled.BreakHalf right/>
+            <Styled.BreakHalf color={color} left/>
+            <Styled.BreakHalf color={color} right/>
         </Styled.SectionBreak>
     )
 }

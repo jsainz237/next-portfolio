@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { Intro } from '../sections/Intro';
 import { Skills } from '../sections/Skills';
+import { Projects } from '../sections/Projects';
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
       </ParallaxLayer>
       <ParallaxLayer offset={0.99} speed={1}>
         <Skills />
+        <Projects />
       </ParallaxLayer>
     </Parallax>
   )
