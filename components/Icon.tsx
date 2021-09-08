@@ -15,14 +15,7 @@ import Sass from '../public/icons/Sass_Logo.svg';
 import StyledComponents from '../public/icons/styled-components-logo.svg';
 import Bootstrap from '../public/icons/Bootstrap_logo.svg';
 
-interface Icons {
-    [key: string]: {
-        Icon: any;
-        color?: string;
-    }
-}
-
-const icons: Icons = {
+const icons = {
     JavaScript: { Icon: JavaScript, color: '#f1db4f' },
     HTML5: { Icon: HTML5, color: '#f16524' },
     GraphQL: { Icon: GraphQL, color: '#e632ad' },
