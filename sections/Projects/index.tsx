@@ -19,10 +19,10 @@ export const Projects: React.FC = () => {
                 <Row style={{ width: '100%' }}>
                     {
                         projectList.map((proj, ind) => {
-                            const last = ind === projectList.length - 1;
+                            const first = ind === 0;
                             return (
-                                <Col xs={12} md={last ? 12 : 6} lg={4}>
-                                <   ProjectCard {...proj} />
+                                <Col xs={12} md={first ? 12 : 6} lg={4}>
+                                    <ProjectCard {...proj} />
                                 </Col>
                             )
                         })

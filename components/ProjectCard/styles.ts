@@ -3,20 +3,19 @@ import Ratio from 'react-bootstrap/Ratio';
 
 export interface ProjectCardProps {
     img?: string;
-    overlayBg?: any;
 }
 
-const borderRadius = '1.5rem';
-export const Overlay = styled.div<Pick<ProjectCardProps, 'overlayBg'>>`
+const borderRadius = '1.25rem';
+export const Overlay = styled.div`
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.9;
+    opacity: 0;
+    background: black;
     border-radius: ${() => borderRadius};
-    background: ${({ overlayBg }) => overlayBg};
-    transition: background 0.2s ease;
+    transition: opacity 0.2s ease;
 `
 
 export const ProjectsContainer = styled.div`
@@ -25,6 +24,7 @@ export const ProjectsContainer = styled.div`
     align-items: center;
     width: 100%;
     transition: all 0.2s ease;
+    backdrop-filter: blur(0);
 `
 
 export const Title = styled.h1`
@@ -45,7 +45,7 @@ export const AspectRatio = styled(Ratio)<Pick<ProjectCardProps, 'img'>>`
     margin-bottom: 1.5rem;
 
     &:hover ${Overlay} {
-        background: black; 
+        opacity: 0.9; 
     }
 
     &:hover ${ProjectsContainer} {

@@ -6,12 +6,12 @@ export interface ProjectCardProps extends Styled.ProjectCardProps {
     tech: any[];
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img, overlayBg }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
     return (
         <Styled.AspectRatio aspectRatio="16x9" img={img}>
             <Styled.ProjectsContainer>
-                <Styled.Overlay overlayBg={overlayBg} />
-                <Styled.Title style={{ zIndex: 100 }}>{ title }</Styled.Title>
+                <Styled.Overlay />
+                {/* <Styled.Title style={{ zIndex: 100 }}>{ title }</Styled.Title> */}
             </Styled.ProjectsContainer>
         </Styled.AspectRatio>
     )
