@@ -33,7 +33,6 @@ export const Skills: React.FC = () => {
                 <Styled.SkillGrid>
                     {
                         Object.entries(Icons).map(([name, { Icon }], ind) => {
-                            // if(name === "Bootstrap") { console.log(Icon.getBBox()); }
                             return (
                                 <SkillCard key={ind} index={ind}
                                     onMouseEnter={() => set(name)}

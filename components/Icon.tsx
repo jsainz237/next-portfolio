@@ -34,8 +34,11 @@ const icons = {
     Typescript: { Icon: Typescript, color: '#3278c6'},
 }
 
+icons['Styled-Components'].Icon.defaultProps = { fill: 'white' };
+
 for(const [_, obj] of Object.entries(icons)) {
-    obj.Icon.defaultProps = { height: '2.5rem', width: '2.5rem' };
+    const props = obj.Icon.defaultProps;
+    obj.Icon.defaultProps = { ...props, height: '2.5rem', width: '2.5rem' };
 }
 
 export default icons;

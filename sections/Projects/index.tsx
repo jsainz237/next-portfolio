@@ -15,14 +15,14 @@ export const Projects: React.FC = () => {
            <SectionBreak color={theme.secondary} />
            <Styled.ProjectsContainer>
                <h1>Projects</h1>
-               <p>A few of my most recent projects</p>
+               <p>A few of my personal projects</p>
                 <Row style={{ width: '100%' }}>
                     {
                         projectList.map((proj, ind) => {
                             const first = ind === 0;
                             return (
-                                <Col xs={12} md={first ? 12 : 6} lg={4}>
-                                    <ProjectCard {...proj} />
+                                <Col key={ind} xs={12} md={first ? 12 : 6} lg={4}>
+                                    <ProjectCard first={first} {...proj} />
                                 </Col>
                             )
                         })

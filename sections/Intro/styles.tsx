@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { a } from 'react-spring';
 import Container from 'react-bootstrap/Container';
 
-export const IntroContainer = styled.div`
+export const IntroContainer = styled(a.div)`
     height: 100vh;
     width: 100vw;
     background-color: ${({ theme }) => theme.bg};

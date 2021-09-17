@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import { config, useSpring } from '@react-spring/three';
-import Container from 'react-bootstrap/Container';
+import { ThemeProvider } from "styled-components";
 import { ContactShadows, Html, OrbitControls, OrthographicCamera  } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -8,7 +8,6 @@ import { withCanvas } from '../../components/withCanvas';
 import { Logo } from "../../components/Logo";
 import * as Ease from '../../_utils/ease-functions';
 import * as Styled from './styles';
-import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/theme";
 
 const _Intro: React.FC = () => {
@@ -16,7 +15,7 @@ const _Intro: React.FC = () => {
     const camera = useRef<any>();
     const light = useRef<any>();
 
-    const spring = useSpring({
+    const { position } = useSpring({
         loop: true,
         to: [
             { position: [4, -0.3, 0] },
@@ -30,7 +29,7 @@ const _Intro: React.FC = () => {
             easing: Ease.easeInOutQuad,
             ...config.gentle,
         }
-    })
+    });
 
     return (
         <>
@@ -45,7 +44,7 @@ const _Intro: React.FC = () => {
             </Html>
             
             {/* 3D Canvas Components */}
-            <Logo ref={logo} castShadow={true} position={spring.position as any} rotation={[Math.PI / 2, 0, 0]} />
+            <Logo ref={logo} castShadow={true} position={position as any} rotation={[Math.PI / 2, 0, 0]} />
             <ContactShadows position={[0, -1.9, 0]} opacity={0.3} width={20} height={10} far={20} rotation={[Math.PI / 2, 0, 0]} />
 
             <OrthographicCamera ref={camera} scale={0.01} position={[-2, 1.7, 5]} makeDefault />
@@ -59,6 +58,4 @@ const _Intro: React.FC = () => {
     )
 }
 
-export const Intro = withCanvas(_Intro, Styled.IntroContainer, {
-    style: { overflow: 'unset' },
-});
+export const Intro = withCanvas(_Intro, Styled.IntroContainer);

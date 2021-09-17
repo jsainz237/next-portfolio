@@ -1,20 +1,37 @@
+import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { a, config, useSpring } from 'react-spring';
 import { Intro } from '../sections/Intro';
 import { Skills } from '../sections/Skills';
 import { Projects } from '../sections/Projects';
 
 const Home: NextPage = () => {
+  const [translation, set] = useState<number>(0);
+  const { yPos } = useSpring({ 
+    yPos: translation,
+    config: {
+      ...config.default,
+      tension: 500,
+      friction: 30,
+    },
+  });
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    set(window.scrollY / 4);
+  }
   return (
-    <Parallax pages={2}>
-      <ParallaxLayer speed={0.5}>
+    <>
+      <a.div style={{ transform: yPos.to(val => `translateY(${val}px)`) }}>
         <Intro />
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.99} speed={1}>
-        <Skills />
-        <Projects />
-      </ParallaxLayer>
-    </Parallax>
+      </a.div>
+      <Skills />
+      <Projects />
+    </>
   )
 }
 
