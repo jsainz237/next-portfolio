@@ -10,6 +10,7 @@ const projectsList: ProjectCardProps[] = [
         tech: [
             Icons.React,
             Icons.Typescript,
+            Icons.Bootstrap,
             Icons['Styled-Components'],
         ],
         buttonText: "visit website",
