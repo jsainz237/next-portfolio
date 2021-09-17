@@ -1,20 +1,11 @@
-import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
-import { a, config, useSpring } from 'react-spring';
+import { useEffect, useState } from 'react'
 import { Intro } from '../sections/Intro';
 import { Skills } from '../sections/Skills';
 import { Projects } from '../sections/Projects';
 
 const Home: NextPage = () => {
-  const [translation, set] = useState<number>(0);
-  const { yPos } = useSpring({ 
-    yPos: translation,
-    config: {
-      ...config.default,
-      tension: 500,
-      friction: 30,
-    },
-  });
+  const [yPos, set] = useState<number>(0);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -24,11 +15,12 @@ const Home: NextPage = () => {
   const handleScroll = () => {
     set(window.scrollY / 4);
   }
+
   return (
     <>
-      <a.div style={{ transform: yPos.to(val => `translateY(${val}px)`) }}>
+      <div style={{ transform: `translateY(${yPos}px)` }}>
         <Intro />
-      </a.div>
+      </div>
       <Skills />
       <Projects />
     </>
