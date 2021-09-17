@@ -1,7 +1,7 @@
 import Icons from '../../components/Icon';
 import { ProjectCardProps } from '../../components/ProjectCard';
 
-export default [
+const projectsList: ProjectCardProps[] = [
     {
         title: "Todo List",
         description: "A simple todo list web app showcase. Styling and accessability were the biggest\
@@ -12,6 +12,8 @@ export default [
             Icons.Typescript,
             Icons['Styled-Components'],
         ],
+        buttonText: "visit website",
+        link: "https://todo.jsainz.me",
     },
     {
         title: "The Button",
@@ -23,6 +25,8 @@ export default [
             Icons.NodeJS,
             Icons.PostgreSQL,
         ],
+        buttonText: "visit website",
+        link: "https://www.savethebutton.com",
     },
     {
         title: "Server Dashboard",
@@ -34,6 +38,10 @@ export default [
             Icons['Sass/Scss'],
             Icons.NodeJS,
             Icons.PostgreSQL,
-        ]
+        ],
+        buttonText: "view repository",
+        link: "https://github.com/jsainz237/MC-Server-Panel-Demo"
     },
-] as ProjectCardProps[];
+];
+
+export default projectsList;
