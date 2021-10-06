@@ -1,61 +1,96 @@
 import React, { useRef } from "react"
-import { config, useSpring } from '@react-spring/three';
+import { a as AnimatedThree, to } from '@react-spring/three';
+import { a as AnimatedWeb } from '@react-spring/web';
 import { ThemeProvider } from "styled-components";
-import { ContactShadows, Html, OrbitControls, OrthographicCamera  } from '@react-three/drei';
+import { Html, OrbitControls, OrthographicCamera, useHelper  } from '@react-three/drei';
 import * as THREE from 'three';
 
 import { withCanvas } from '../../components/withCanvas';
 import { Logo } from "../../components/Logo";
-import * as Ease from '../../_utils/ease-functions';
 import * as Styled from './styles';
 import { theme } from "../../styles/theme";
+import { useAnimation } from './animations'
+
+const DEBUG = false;
+const SHOW_HTML = true;
+
+const AnimatedOrthographicCamera = AnimatedThree(OrthographicCamera);
 
 const _Intro: React.FC = () => {
     const logo = useRef<THREE.Mesh>();
     const camera = useRef<any>();
-    const light = useRef<any>();
+    const p1 = useRef<any>();
+    const p2 = useRef<any>();
+    const p3 = useRef<any>();
+    const p4 = useRef<any>();
 
-    const { position } = useSpring({
-        loop: true,
-        to: [
-            { position: [4, -0.3, 0] },
-            { position: [4, -0.45, 0 ] },
-        ],
-        from: {
-            position: [4, -0.45, 0]
-        },
-        config: {
-            duration: 3000,
-            easing: Ease.easeInOutQuad,
-            ...config.gentle,
-        }
+    const { rx } = useAnimation.logo.rotation.x();
+    const { rz } = useAnimation.logo.rotation.z();
+    const { position, rotation: r, scale, shouldRun } = useAnimation.logo.attrs();
+
+    const pl1 = useAnimation.lights.pl1();
+    const pl4 = useAnimation.lights.pl4();
+
+    const letteringTrail = useAnimation.content.header(2);
+
+    if(DEBUG) {
+        useHelper(camera, THREE.CameraHelper, 'red');
+        useHelper(p1, THREE.PointLightHelper, 1, 'green');
+        useHelper(p2, THREE.PointLightHelper, 1, 'blue');
+        useHelper(p3, THREE.PointLightHelper, 1, 'pink');
+        useHelper(p4, THREE.PointLightHelper, 1, 'cyan');
+    }
+
+    const rotation = to([rx, rz, r, shouldRun], (rx, rz, r, shouldRun) => {
+        return shouldRun.valueOf() === 0 ?
+            [rx, 0, rz] : r;
     });
 
     return (
         <>
             {/* Intro Content */}
-            <Html fullscreen>
-                <ThemeProvider theme={theme}>
-                    <Styled.IntroContent>
-                        <h1>&#128075; Hey, I'm Jesse!</h1>
-                        <p>I'm a full stack web developer based in Austin, TX</p>
-                    </Styled.IntroContent>
-                </ThemeProvider>
-            </Html>
+            {!DEBUG && SHOW_HTML && (
+                <Html fullscreen>
+                    <ThemeProvider theme={theme}>
+                        <Styled.IntroContent>
+                            <Header>
+                                <h1>&#128075; Hey, I'm Jesse!</h1>
+                                <p>I'm a full stack web developer based in Austin, TX</p>
+                            </Header>
+                        </Styled.IntroContent>
+                    </ThemeProvider>
+                </Html> 
+            )}
             
             {/* 3D Canvas Components */}
-            <Logo ref={logo} castShadow={true} position={position as any} rotation={[Math.PI / 2, 0, 0]} />
-            <ContactShadows position={[0, -1.9, 0]} opacity={0.3} width={20} height={10} far={20} rotation={[Math.PI / 2, 0, 0]} />
+            <Logo ref={logo} castShadow={true} position={position as any} scale={scale as any} rotation={rotation as any} />
+            {/* <Logo ref={logo} castShadow={true} position={[0, 0, 0]} scale={100} rotation={[Math.PI / 2, 0, 0]} /> */}
 
-            <OrthographicCamera ref={camera} scale={0.01} position={[-2, 1.7, 5]} makeDefault />
-            <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} />
+            <AnimatedOrthographicCamera ref={camera} scale={0.01} position={[0, 0, 5]} makeDefault={!DEBUG} />
+            {DEBUG && <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} /> }
 
-            <ambientLight intensity={0.5} />
-            <pointLight castShadow={false} position={[0, 10, 0]} />
-            <pointLight ref={light} castShadow={true} intensity={2} position={[5, 2, 2]} />
-            <pointLight castShadow={false} position={[-3, -5, -5]} intensity={0.3} />
+            <AnimatedThree.ambientLight intensity={5} />
+            <AnimatedThree.pointLight ref={p1} position={pl1.position as any} />
+            <AnimatedThree.pointLight ref={p2} position={[-3, -5, -5]} />
+            <AnimatedThree.pointLight ref={p3} castShadow={true} intensity={2} position={[5, 2, 2]} />
+            <AnimatedThree.pointLight ref={p4} intensity={pl4.timePassed.to([0, 3000, 6000], [0, 1, 0])} position={pl4.position as any} />
         </>
     )
 }
 
 export const Intro = withCanvas(_Intro, Styled.IntroContainer);
+
+const Header: React.FC = ({ children }) => {
+    const elems = React.Children.toArray(children);
+    const trail = useAnimation.content.header(elems.length);
+
+    return <>
+        {trail.map(({ opacity, y }, index) => {
+            return (
+                <AnimatedWeb.div key={index} style={{ opacity, transform: y.to(val => `translateY(${val}px)`) }}>
+                    {elems[index]}
+                </AnimatedWeb.div>
+            )
+        })}
+    </>
+}

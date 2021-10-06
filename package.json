@@ -15,11 +15,13 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@react-spring/parallax": "^9.2.4",
     "@react-spring/three": "^9.2.4",
+    "@react-spring/web": "^9.2.5",
     "@react-three/drei": "^7.5.0",
     "@react-three/fiber": "^7.0.6",
     "@svgr/webpack": "^5.5.0",
     "@types/three": "^0.131.0",
     "bootstrap": "^5.1.0",
+    "d3-ease": "^3.0.1",
     "next": "11.1.0",
     "next-transpile-modules": "^8.0.0",
     "react": "17.0.2",
@@ -31,6 +33,7 @@
     "three": "^0.131.3"
   },
   "devDependencies": {
+    "@types/d3-ease": "^3.0.0",
     "@types/react": "17.0.19",
     "@types/styled-components": "^5.1.14",
     "babel-plugin-styled-components": "^1.13.2",

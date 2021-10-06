@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 export const IntroContainer = styled(a.div)`
     height: 100vh;
     width: 100vw;
-    background-color: ${({ theme }) => theme.bg};
+    background-color: ${({ theme }) => theme.xdkBg};
 `
 
 export const IntroContent = styled(Container)`
