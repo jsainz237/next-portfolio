@@ -13,7 +13,7 @@ const utils = {
 }
 
 export const theme = {
-    bg:         "#C8C6C6",
+    bg:         "#0a0a0a",
     offsetBg:   "#e7e7e7",
     dkBg:       "#424B54",
     mdBg:       "#5e5c6c",

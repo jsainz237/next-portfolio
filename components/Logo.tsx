@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import { useGLTF } from '@react-three/drei'
 import { a } from '@react-spring/three';
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
+import { MeshPhongMaterialProps } from '@react-three/fiber';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -17,13 +18,18 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const Logo: React.FC<JSX.IntrinsicElements['mesh']> = React.forwardRef((props, ref) => {
+type Props = JSX.IntrinsicElements['mesh'] & {
+  materialProps?: MeshPhongMaterialProps;
+  color?: MeshPhongMaterialProps['color'];
+}
+
+export const Logo: React.FC<Props> = React.forwardRef(({ materialProps, color, ...props }, ref) => {
     const { nodes } = useGLTF('/logo.gltf') as GLTFResult;
     const [scale, setScale] = useState<number>(65);
 
     return (
         <a.mesh onPointerEnter={() => setScale(75)} onPointerLeave={() => setScale(65)} geometry={nodes.Union_4001.geometry} scale={scale} {...props}>
-            <a.meshPhongMaterial shininess={5} color="#5A5A5A" />
+            <a.meshPhongMaterial shininess={5} {...materialProps} color={color || '#5A5A5A'} />
         </a.mesh>
     )
 })
