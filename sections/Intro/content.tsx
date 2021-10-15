@@ -6,7 +6,6 @@ import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/theme";
-import { INTER_DELAY } from './animations.config';
 import * as Styled from './styles';
 import { Button } from "../../components/Button";
 
@@ -32,9 +31,9 @@ export const Content: React.FC = () => {
 const Header: React.FC = ({ children }) => {
     const elems = React.Children.toArray(children);
     const trail = useTrail(elems.length, {
-        delay: INTER_DELAY,
         from: { opacity: 0, y: -45 },
         to: { opacity: 1, y: 0 },
+        delay: 1000,
         config: config.slow,
     });
 
@@ -52,9 +51,9 @@ const Header: React.FC = ({ children }) => {
 const Links: React.FC = ({ children }) => {
     const elems = React.Children.toArray(children);
     const trail = useTrail(elems.length, {
-        delay: INTER_DELAY + 300,
         from: { opacity: 0, x: -45 },
         to: { opacity: 1, x: 0 },
+        delay: 1000,
         config: config.slow,
     });
 

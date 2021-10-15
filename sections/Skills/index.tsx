@@ -21,7 +21,7 @@ export const Skills: React.FC = () => {
     const { breakPos } = useSpring({
         from: { breakPos: 100 },
         to:   { breakPos: 0 },
-        delay: 4000,
+        delay: 1000,
         config: config.slow,
     });
 
