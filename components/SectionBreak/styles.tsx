@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { a } from 'react-spring';
 
 const sectionHeight = '6rem';
 
-export const SectionBreak = styled.div`
+export const SectionBreak = styled(a.div)`
     display: inline-flex;
     width: 100%;
     position: absolute;

@@ -4,7 +4,7 @@ import { ProjectCardProps } from '../../components/ProjectCard';
 const projectsList: ProjectCardProps[] = [
     {
         title: "Todo List",
-        description: "A simple todo list web app showcase. Styling and accessability were the biggest\
+        description: "A simple todo list app. Styling and accessability were the biggest\
         focuses for this project.",
         img: "/project-screenshots/todo-list.png",
         tech: [

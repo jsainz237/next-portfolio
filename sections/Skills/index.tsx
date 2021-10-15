@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { a, useTransition, useSpringRef } from 'react-spring';
+import { a, useTransition, useSpring, useSpringRef, config } from 'react-spring';
 
 import { SectionBreak } from "../../components/SectionBreak"
 import { SkillCard } from "../../components/SkillCard";
@@ -16,7 +16,14 @@ export const Skills: React.FC = () => {
         from: { opacity: 0, transform: 'translate3d(0, -100%, 0)', position: 'absolute', top: 0 },
         enter: { opacity: 1, transform: 'translate3d(0, 0%, 0)' },
         leave: { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
-    })
+    });
+
+    const { breakPos } = useSpring({
+        from: { breakPos: 100 },
+        to:   { breakPos: 0 },
+        delay: 4000,
+        config: config.slow,
+    });
 
     useEffect(() => {
         transRef.start();
@@ -24,7 +31,9 @@ export const Skills: React.FC = () => {
 
     return (
         <Styled.SkillsSectionWrapper>
-            <SectionBreak />
+            <SectionBreak
+                style={{ transform: breakPos.to(y => `translateY(${y}px)`)} as any }
+            />
            
             <Styled.SkillsContainer>
                 <Styled.TitleContainer>

@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '../Button';
 import * as Styled from './styles';
 
 export interface ProjectCardProps extends Styled.ProjectCardProps {
@@ -35,10 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     <p>{description}</p>
                 {/* </div> */}
                 <a href={link} target="_blank">
-                    <Styled.ViewButton>
-                        {buttonText}
-                        <span><FontAwesomeIcon icon={faChevronRight} color="white" /></span>
-                    </Styled.ViewButton>
+                    <Button text={buttonText} />
                 </a>
             </Styled.ProjectsContainer>
         </Styled.AspectRatio>

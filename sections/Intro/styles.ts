@@ -16,13 +16,22 @@ export const IntroContent = styled(Container)`
 
     h1 {
         font-family: 'Roboto Slab', serif;
-        font-size: 4rem;
-        color: ${({ theme }) => theme.textColor};
+        font-size: 5rem;
+        color: #a9b4bf;
     }
 
     p {
-        color: ${({ theme }) => theme.textColor};
-        font-size: 1.5rem;
+        color: #a9b4bf;
+        font-size: 1.8rem;
         font-weight: 400;
+    }
+`
+
+export const ContentIcons = styled.div`
+    display: flex;
+    align-items: center;
+
+    & > * {
+        margin-right: 1.5rem;
     }
 `

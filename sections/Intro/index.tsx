@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
 import { a, config, useSpring, to } from '@react-spring/three';
-import { ThemeProvider } from "styled-components";
 import * as Ease from 'd3-ease';
 import * as THREE from 'three';
 import {
@@ -12,25 +11,16 @@ import {
 
 import { withCanvas } from '../../components/withCanvas';
 import { Logo } from "../../components/Logo";
-import { theme } from "../../styles/theme";
+import { Content } from "./content";
+import {
+    LOGO_PROPS_1,
+    LOGO_PROPS_2,
+    ANIM_1_DURATION,
+    ANIM_2_DURATION,
+} from './animations.config';
 import * as Styled from './styles';
 
 const DEBUG_SCENE = false;
-
-const ANIM_1_DURATION = 2500;
-const ANIM_2_DURATION = 2000;
-
-const LOGO_PROPS_1 = {
-    position: [0, 0, 2.5],
-    rotation: [Math.PI / 2, 0, 0],
-    scale: 175
-}
-
-const LOGO_PROPS_2 = {
-    position: [3.63, -0.2, 2.5],
-    rotation: [0.861, -0.48, 0.38],
-    scale: 300,
-}
 
 const _Intro: React.FC = () => {
     const [animation1Done, setAnimation1Done] = useState<boolean>(false);
@@ -93,14 +83,11 @@ const _Intro: React.FC = () => {
     return (
         <>
             {/* Intro Content */}
-            {!DEBUG_SCENE && <Html fullscreen>
-                <ThemeProvider theme={theme}>
-                    <Styled.IntroContent>
-                        <h1>&#128075; Hey, I'm Jesse!</h1>
-                        <p>I'm a full stack web developer based in Austin, TX</p>
-                    </Styled.IntroContent>
-                </ThemeProvider>
-            </Html> }
+            {!DEBUG_SCENE && (
+                <Html fullscreen>
+                    <Content />
+                </Html>
+            )}
             
             {/* LOGO MESH */}
             { !animation1Done ? 

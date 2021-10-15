@@ -117,22 +117,3 @@ export const IconsWrapper = styled.div`
         margin: 0 0.25rem;
     }
 `
-
-export const ViewButton = styled.button`
-    background: none;
-    color: white;
-    font-size: 0.835rem;
-    border: 1px solid gray;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.75rem;
-    opacity: 0;
-    transition: all 0.3s ease;
-
-    &:hover {
-        opacity: 0.6 !important;
-    }
-
-    span {
-        margin-left: 0.25rem;
-    }
-`

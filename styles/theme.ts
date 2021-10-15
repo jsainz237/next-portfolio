@@ -20,7 +20,8 @@ export const theme = {
 
     primary:    "#2F9C95",
     secondary:  "#E85D75",
-    textColor:  "#716f6f",
+
+    textColor:  "#a4aebd",
 
     breakpts,
     utils,
