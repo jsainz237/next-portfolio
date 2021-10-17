@@ -28,7 +28,7 @@ export const Logo: React.FC<Props> = React.forwardRef(({ materialProps, color, .
     const [scale, setScale] = useState<number>(65);
 
     return (
-        <a.mesh onPointerEnter={() => setScale(75)} onPointerLeave={() => setScale(65)} geometry={nodes.Union_4001.geometry} scale={scale} {...props}>
+        <a.mesh ref={ref} onPointerEnter={() => setScale(75)} onPointerLeave={() => setScale(65)} geometry={nodes.Union_4001.geometry} scale={scale} {...props}>
             <a.meshPhongMaterial shininess={5} {...materialProps} color={color || '#5A5A5A'} />
         </a.mesh>
     )

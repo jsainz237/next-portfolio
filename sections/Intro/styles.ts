@@ -2,17 +2,12 @@ import styled from 'styled-components';
 import { a } from 'react-spring';
 import Container from 'react-bootstrap/Container';
 
-export const IntroContainer = styled(a.div)`
-    height: 100vh;
-    width: 100vw;
-    background-color: #0c0c0c;
-`
-
-export const IntroContent = styled(Container)`
+export const IntroContainer = styled(Container)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    height: 100vh;
+    width: 100%;
 
     h1 {
         font-family: 'Roboto Slab', serif;

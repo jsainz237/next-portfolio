@@ -1,95 +1,69 @@
-import React, { useRef } from "react"
-import { a, config, useSpring, to } from '@react-spring/three';
-import * as Ease from 'd3-ease';
-import * as THREE from 'three';
-import {
-    Html,
-    OrbitControls,
-    OrthographicCamera,
-    useHelper,
-} from '@react-three/drei';
+import React from "react";
+import { a, config, useTrail } from "@react-spring/web";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { withCanvas } from '../../components/withCanvas';
-import { Logo } from "../../components/Logo";
-import { Content } from "./content";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../styles/theme";
 import * as Styled from './styles';
+import { Button } from "../../components/Button";
 
-const DEBUG_SCENE = false;
-
-const LOGO_PROPS = {
-    position: [3.63, -0.2, 2.5],
-    rotation: [0.861, -0.48, 0.38],
-    scale: 300,
-}
-
-const _Intro: React.FC = () => {
-    const p1Ref = useRef<any>();
-    const p2Ref = useRef<any>();
-
-    if(DEBUG_SCENE) {
-        useHelper(p1Ref, THREE.PointLightHelper, 1, 'red');
-        useHelper(p2Ref, THREE.PointLightHelper, 1, 'blue');
-    }
-
-    const animation = useSpring({
-        from: {
-            pl2Intensity: 0,
-            rx: LOGO_PROPS.rotation[0] + 0.06,
-            rz: LOGO_PROPS.rotation[2] + 0.06,
-            py: LOGO_PROPS.position[1] + 0.06,
-        },
-        to: {
-            pl2Intensity: 1,
-            rx: LOGO_PROPS.rotation[0],
-            rz: LOGO_PROPS.rotation[2],
-            py: LOGO_PROPS.position[1],
-        },
-        config: {
-            ...config.gentle,
-            duration: 2000,
-            easing: Ease.easeCubicInOut,
-        }
-    })
-
-    const logoPositionInterpolation = animation.py.to(yVal => 
-        [LOGO_PROPS.position[0], yVal, LOGO_PROPS.position[1]]
-    );
-
-    const logoRotationInterpolation = to([animation.rx, animation.rz], (rx, rz) =>
-        [rx, LOGO_PROPS.rotation[1], rz]
-    );
-
+export const Intro: React.FC = () => {
     return (
-        <>
-            {/* Intro Content */}
-            {!DEBUG_SCENE && (
-                <Html fullscreen>
-                    <Content />
-                </Html>
-            )}
-            
-            {/* LOGO MESH */}
-            <Logo
-                color="#242424"
-                position={logoPositionInterpolation as any}
-                rotation={logoRotationInterpolation as any}
-                scale={LOGO_PROPS.scale}
-            />
-
-            {/* CAMERA & CONTROLS */}
-            <OrthographicCamera scale={0.01} position={[0, 0, 10]} makeDefault />
-            { DEBUG_SCENE && <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} /> }
-
-            {/* LIGHTING */}
-            <a.ambientLight intensity={animation.pl2Intensity.to([0, 1], [0.770, 0]) as any} />
-            <a.pointLight
-                ref={p2Ref}
-                color="#C2E0FF"
-                position={[0, 4, 1]}
-                intensity={animation.pl2Intensity as any}
-            />
-        </>
+        <Styled.IntroContainer>
+            <Header>
+                <h1>Hey, I'm Jesse!</h1>
+                <p>I'm a full stack web developer based in Austin, TX</p>
+            </Header>
+            <Links>
+                <Button text="contact" color="#a9b4bf" style={{ opacity: 1 }} />
+                <FontAwesomeIcon icon={faGithub} color="#a9b4bf" size={"2x"} />
+                <FontAwesomeIcon icon={faLinkedin} color="#a9b4bf" size={"2x"} />
+                <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />
+            </Links>
+        </Styled.IntroContainer>
     )
 }
 
-export const Intro = withCanvas(_Intro, Styled.IntroContainer);
+const Header: React.FC = ({ children }) => {
+    const elems = React.Children.toArray(children);
+    const trail = useTrail(elems.length, {
+        from: { opacity: 0, y: -45 },
+        to: { opacity: 1, y: 0 },
+        delay: 1000,
+        config: config.slow,
+    });
+
+    return <>
+        {trail.map(({ opacity, y }, index) => {
+            return (
+                <a.div key={index} style={{ opacity, transform: y.to(val => `translateY(${val}px)`) }}>
+                    {elems[index]}
+                </a.div>
+            )
+        })}
+    </>
+}
+
+const Links: React.FC = ({ children }) => {
+    const elems = React.Children.toArray(children);
+    const trail = useTrail(elems.length, {
+        from: { opacity: 0, x: -45 },
+        to: { opacity: 1, x: 0 },
+        delay: 1000,
+        config: config.slow,
+    });
+
+    return (
+        <Styled.ContentIcons>
+            {trail.map(({ opacity, x }, index) => {
+                return (
+                    <a.div key={index} style={{ opacity, transform: x.to(val => `translateX(${val}px)`) }}>
+                        {elems[index]}
+                    </a.div>
+                )
+            })}
+        </Styled.ContentIcons>
+    )
+}
