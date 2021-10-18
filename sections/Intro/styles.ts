@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import { a } from 'react-spring';
-import Container from 'react-bootstrap/Container';
 
-export const IntroContainer = styled(Container)`
+export const IntroWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -4,14 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { ThemeProvider } from "styled-components";
-import { theme } from "../../styles/theme";
 import * as Styled from './styles';
 import { Button } from "../../components/Button";
 
 export const Intro: React.FC = () => {
     return (
-        <Styled.IntroContainer>
+        <Styled.IntroWrapper>
             <Header>
                 <h1>Hey, I'm Jesse!</h1>
                 <p>I'm a full stack web developer based in Austin, TX</p>
@@ -22,7 +20,7 @@ export const Intro: React.FC = () => {
                 <FontAwesomeIcon icon={faLinkedin} color="#a9b4bf" size={"2x"} />
                 <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />
             </Links>
-        </Styled.IntroContainer>
+        </Styled.IntroWrapper>
     )
 }
 

@@ -9,18 +9,14 @@ export const SkillCard = styled.div<SkillCardStyleProps>`
     align-items: center;
 
     height: 4.25rem;
-    width: 4.75rem;
-    margin: 0.25rem;
+    width: 100%;
 
     background-color: #eeeeee;
     font-size: 1.25rem;
     cursor: pointer;
+    justify-self: center;
+    align-self: center;
     grid-area: ${({ index }) => `s${index}`};
-    align-self: ${({ index: ind }) => {
-        if([1, 3, 10, 13].includes(ind)) return "flex-end";
-        if([2, 5, 12, 14].includes(ind)) return "flex-start";
-        return "center";
-    }};
 
     border: 1px solid lightgray;
     border-radius: 10px;

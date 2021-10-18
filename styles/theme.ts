@@ -12,17 +12,14 @@ const utils = {
     down: (bp: keyof typeof breakpts) => `@media(max-width: ${breakpts[bp]}px)`,
 }
 
+const colors = {
+    bg: "#0C0C0C",
+    primary: "#A9B4BF",
+    secondary: "#1E262F",
+}
+
 export const theme = {
-    bg:         "#0a0a0a",
-    offsetBg:   "#e7e7e7",
-    dkBg:       "#424B54",
-    mdBg:       "#5e5c6c",
-
-    primary:    "#2F9C95",
-    secondary:  "#E85D75",
-
-    textColor:  "#a4aebd",
-
+    ...colors,
     breakpts,
     utils,
 }

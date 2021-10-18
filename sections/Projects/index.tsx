@@ -12,7 +12,6 @@ export const Projects: React.FC = () => {
 
     return (
        <Styled.ProjectsSectionWrapper>
-           <SectionBreak color={theme.secondary} />
            <Styled.ProjectsContainer>
                <h1>Projects</h1>
                <p>A few of my personal projects</p>

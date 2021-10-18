@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components';
+import Container from 'react-bootstrap/Container';
 import Head from 'next/head';
 
 import { theme } from '../styles/theme';
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta charSet="UTF-8" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Container>
+          <Component {...pageProps} />
+        </Container>
       </ThemeProvider>
     </>
   );

@@ -1,60 +1,51 @@
-import { useState, useEffect } from "react";
-import { a, useTransition, useSpring, useSpringRef, config } from 'react-spring';
+import { useEffect, useState } from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-import { SectionBreak } from "../../components/SectionBreak"
 import { SkillCard } from "../../components/SkillCard";
+import { SectionText, SectionTitle } from '../../components/common';
 import Icons from '../../components/Icon';
 import * as Styled from './styles';
 
 export const Skills: React.FC = () => {
-    const [title, set] = useState<string>("Skills");
-    const transRef = useSpringRef();
-
-    const transtions = useTransition(title, {
-        ref: transRef,
-        keys: null,
-        from: { opacity: 0, transform: 'translate3d(0, -100%, 0)', position: 'absolute', top: 0 },
-        enter: { opacity: 1, transform: 'translate3d(0, 0%, 0)' },
-        leave: { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
-    });
-
-    const { breakPos } = useSpring({
-        from: { breakPos: 100 },
-        to:   { breakPos: 0 },
-        delay: 1000,
-        config: config.slow,
-    });
+    const barXStart = -100;
+    const [barXPos, set] = useState<number>(barXStart);
 
     useEffect(() => {
-        transRef.start();
-    }, [title])
+        window.addEventListener('scroll', moveBar);
+
+        return () => window.removeEventListener('scroll', moveBar);
+    })
+
+    const moveBar = () => {
+        const xPos = barXStart + (window.scrollY / 4);
+        set(xPos);
+    }
 
     return (
-        <Styled.SkillsSectionWrapper>
-            <SectionBreak
-                style={{ transform: breakPos.to(y => `translateY(${y}px)`)} as any }
-            />
-           
-            <Styled.SkillsContainer>
-                <Styled.TitleContainer>
-                    { transtions((style, title) => <a.h1 style={style as any}>{title}</a.h1>)}
-                </Styled.TitleContainer>
+        <Row className="gx-5">
+            <Col md={12} lg={6} style={{ zIndex: 100 }}>
+                <SectionTitle>My Skills</SectionTitle>
+                <SectionText>
+                    I enjoy working on all aspects of web development,
+                    from APIs and databases to the design and UX of the front-end. My favorite past
+                    time is learning new technologies, tools, and libraries!
+                </SectionText>
+            </Col>
+            <Col md={12} lg={6}>
+                <Styled.Bar style={{ right: barXPos }}/>
                 <Styled.SkillGrid>
                     {
                         Object.entries(Icons).map(([name, { Icon }], ind) => {
                             return (
-                                <SkillCard key={ind} index={ind}
-                                    onMouseEnter={() => set(name)}
-                                    onMouseLeave={() => set("Skills")}
-                                >
+                                <SkillCard key={ind} index={ind}>
                                     <Icon />
                                 </SkillCard>
                             )
                         })
                     }
-                    
                 </Styled.SkillGrid>
-            </Styled.SkillsContainer>
-        </Styled.SkillsSectionWrapper>
+            </Col>
+        </Row>
     )
 }
