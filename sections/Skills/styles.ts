@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { AbsoluteWrapper } from '../../components/common';
 
 export const SkillGrid = styled.div`
     display: grid;
@@ -11,11 +12,9 @@ export const SkillGrid = styled.div`
     "e-2 e-2 s11 s12 s13 s14";
 `;
 
-export const Bar = styled.div`
-    position: absolute;
-    top: 912px;
+export const DecorationBar = styled(AbsoluteWrapper)`
     height: 4rem;
-    width: 46%;
+    width: 40vw;
     background: ${({ theme }) => theme.secondary};
     border-radius: 0.25rem;
 `;

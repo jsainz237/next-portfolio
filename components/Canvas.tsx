@@ -12,6 +12,7 @@ import {
 
 import { withCanvas } from '../components/withCanvas';
 import { Logo } from "../components/Logo";
+import { useInterpolateScroll } from "../_utils/hooks/useInterpolateScroll";
 
 const DEBUG_SCENE = false;
 
@@ -21,21 +22,21 @@ const LOGO_PROPS = {
     scale: 300,
 }
 
+const POINT_LIGHT_PROPS = {
+    position: [0, 4, 1],
+}
+
 const Canvas: React.FC = () => {
     const logoRef = useRef<any>();
     const plRef = useRef<any>();
 
-    if(DEBUG_SCENE) {
-        useHelper(plRef, THREE.PointLightHelper, 1, 'blue');
-    }
+    const [yDiff] = useInterpolateScroll([0, 14]);
+    useHelper(plRef, THREE.PointLightHelper, DEBUG_SCENE ? 1 : 0, 'blue');
 
     useEffect(() => {
-        if(logoRef.current && plRef.current) {
-            window.addEventListener('scroll', onScroll);
-        }
-
-        return () => window.removeEventListener('scroll', onScroll);
-    }, [logoRef.current, plRef.current])
+        logoRef.current.position.y = LOGO_PROPS.position[1] + yDiff;
+        plRef.current.position.y = POINT_LIGHT_PROPS.position[1] + yDiff;
+    }, [yDiff]);
 
     const animation = useSpring({
         from: {
@@ -65,13 +66,6 @@ const Canvas: React.FC = () => {
         [rx, LOGO_PROPS.rotation[1], rz]
     );
 
-    const onScroll = () => {
-        const diff = window.scrollY / 75;
-        logoRef.current.position.y = LOGO_PROPS.position[1] + diff;
-        plRef.current.position.y = 4 + diff;
-
-    }
-
     return (
         <>            
             {/* LOGO MESH */}
@@ -92,7 +86,7 @@ const Canvas: React.FC = () => {
             <a.pointLight
                 ref={plRef}
                 color="#C2E0FF"
-                position={[0, 4, 1]}
+                position={POINT_LIGHT_PROPS.position as any}
                 intensity={animation.pl2Intensity as any}
             />
         </>
