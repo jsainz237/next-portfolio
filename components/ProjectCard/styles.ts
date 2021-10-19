@@ -14,7 +14,7 @@ export const Overlay = styled.div`
     width: 100%;
     opacity: 0;
     background: black;
-    border-radius: ${() => borderRadius};
+    /* border-radius: ${() => borderRadius}; */
     transition: opacity 0.2s ease;
 `
 
@@ -50,6 +50,7 @@ export const Title = styled.h1`
 
 export const AspectRatio = styled.div<ProjectCardProps>`
     border-radius: ${() => borderRadius};
+    border: 2px solid white;
     background: ${({ img }) => img && `url(${img})`};
     background-repeat: no-repeat;
     background-size: cover;

@@ -33,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     </Styled.IconsWrapper>
                     <p>{description}</p>
                 {/* </div> */}
-                <a href={link} target="_blank">
+                <a href={link} target="_blank" rel="noreferrer">
                     <Button text={buttonText} />
                 </a>
             </Styled.ProjectsContainer>

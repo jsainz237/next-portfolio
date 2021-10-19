@@ -1,21 +1,36 @@
 import styled from 'styled-components';
-import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import { AbsoluteWrapper } from '../../components/common';
 
-export const ProjectsSectionWrapper = styled.div`
+export const ProjectsContainer = styled.div`
     position: relative;
-    height: auto;
-    width: 100%;
-    padding-top: 5rem;
-    background-color: ${({ theme }) => theme.dkBg};
-`
-
-export const ProjectsContainer = styled(Container)`
-    padding: 2rem 0;
+    margin-top: 8rem;
+    padding-bottom: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    h1, p {
-        color: ${({ theme }) => theme.offsetBg};
+    & > * {
+        z-index: 300;
     }
-`
+`;
+
+export const ProjectsListRow = styled(Row)`
+    width: 100%;
+    margin-top: 1rem;
+`;
+
+const circleDiameter = "4rem";
+export const Circle = styled.div`
+    height: ${circleDiameter};
+    width: ${circleDiameter};
+    border-radius: 2rem;
+    background: ${({ theme }) => theme.secondary};
+`;
+
+export const CircleGrid = styled(AbsoluteWrapper)`
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+`;
