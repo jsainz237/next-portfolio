@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta charSet="UTF-8" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Container>
+        <Container style={{ paddingBottom: "1rem" }}>
           <Component {...pageProps} />
         </Container>
       </ThemeProvider>
