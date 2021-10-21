@@ -5,7 +5,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
 import * as Styled from './styles';
-import { Button } from "../../components/Button";
+import { Button } from "../../components/common";
 
 export const Intro: React.FC = () => {
     return (
@@ -15,7 +15,7 @@ export const Intro: React.FC = () => {
                 <p>I'm a full stack web developer based in Austin, TX</p>
             </Header>
             <Links>
-                <Button text="contact" color="#a9b4bf" style={{ opacity: 1 }} />
+                <Button color="#a9b4bf" style={{ opacity: 1 }}>contact</Button>
                 <FontAwesomeIcon icon={faGithub} color="#a9b4bf" size={"2x"} />
                 <FontAwesomeIcon icon={faLinkedin} color="#a9b4bf" size={"2x"} />
                 <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />

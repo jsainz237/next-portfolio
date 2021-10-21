@@ -17,19 +17,6 @@ const projectsList: ProjectCardProps[] = [
         link: "https://todo.jsainz.me",
     },
     {
-        title: "The Button",
-        description: "A social experiment to see how much a human can care about a simple button.",
-        img: "/project-screenshots/the-button.png",
-        tech: [
-            Icons.Angular,
-            Icons['Sass/Scss'],
-            Icons.NodeJS,
-            Icons.PostgreSQL,
-        ],
-        buttonText: "visit website",
-        link: "https://www.savethebutton.com",
-    },
-    {
         title: "Server Dashboard",
         description: "A server statistics dashboard demo that I completed as part of a technical interview.",
         img: "/project-screenshots/server-panel.png",
@@ -42,6 +29,19 @@ const projectsList: ProjectCardProps[] = [
         ],
         buttonText: "view repository",
         link: "https://github.com/jsainz237/MC-Server-Panel-Demo"
+    },
+    {
+        title: "The Button",
+        description: "A social experiment to see how much a human can care about a simple button.",
+        img: "/project-screenshots/the-button.png",
+        tech: [
+            Icons.Angular,
+            Icons['Sass/Scss'],
+            Icons.NodeJS,
+            Icons.PostgreSQL,
+        ],
+        buttonText: "visit website",
+        link: "https://www.savethebutton.com",
     },
 ];
 

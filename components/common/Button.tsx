@@ -1,19 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import { CSSProperties } from 'react';
+import React, { ButtonHTMLAttributes, CSSProperties } from 'react';
 
 interface Props {
-    text: string;
     color?: string;
-    style?: CSSProperties;
 }
 
-const StyledButton = styled.button<Pick<Props, 'color'>>`
+const StyledButton = styled.button<Props>`
     background: none;
     color: ${({ color }) => color};
     font-size: 0.835rem;
-    border: 1px solid gray;
+    border: 1px solid ${({ color }) => color};
     padding: 0.5rem 1.5rem;
     border-radius: 0.75rem;
     opacity: 0;
@@ -28,9 +26,9 @@ const StyledButton = styled.button<Pick<Props, 'color'>>`
     }
 `
 
-export const Button: React.FC<Props> = ({ text, color = 'white', style }) => (
-    <StyledButton color={color} style={style}>
-        {text}
+export const Button: React.FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({color = 'white', children, ...props }) => (
+    <StyledButton color={color} {...props}>
+        {children}
         <span><FontAwesomeIcon icon={faChevronRight} color={color} /></span>
     </StyledButton>
 )

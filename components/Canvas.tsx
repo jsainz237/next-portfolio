@@ -100,6 +100,7 @@ const CanvasContainer = styled(animatedWeb.div)`
     top: 0;
     left: 0;
     background-color: ${({ theme }) => theme.bg};
+    z-index: -1000;
 `;
 
 export default withCanvas(Canvas, CanvasContainer);
