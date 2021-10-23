@@ -5,7 +5,7 @@ import { AbsoluteWrapper } from '../../components/common';
 export const ProjectsContainer = styled.div`
     position: relative;
     margin-top: 8rem;
-    padding-bottom: 10rem;
+    margin-bottom: 6rem;
     display: flex;
     flex-direction: column;
     align-items: center;

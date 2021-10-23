@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
-import { useEffect, useState } from 'react'
+
 import Canvas from '../components/Canvas';
 import { Intro } from '../sections/Intro';
 import { Skills } from '../sections/Skills';
 import { Projects } from '../sections/Projects';
+import { Contact } from '../sections/Contact';
 
 const Home: NextPage = () => {
 
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
         <Intro />
         <Skills />
         <Projects />
+        <Contact />
     </>
   )
 }

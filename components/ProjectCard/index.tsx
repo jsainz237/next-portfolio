@@ -1,4 +1,4 @@
-import { Button } from '../Button';
+import { Button } from '../../components/common';
 import * as Styled from './styles';
 
 export interface ProjectCardProps extends Styled.ProjectCardProps {
@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     <p>{description}</p>
                 {/* </div> */}
                 <a href={link} target="_blank" rel="noreferrer">
-                    <Button text={buttonText} />
+                    <Button>{buttonText}</Button>
                 </a>
             </Styled.ProjectsContainer>
         </Styled.AspectRatio>
