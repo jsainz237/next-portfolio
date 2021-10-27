@@ -12,6 +12,7 @@ import {
 
 import { withCanvas } from '../components/withCanvas';
 import { Logo } from "../components/Logo";
+import { Earth } from './Globe/Earth';
 import { useInterpolateScroll } from "../_utils/hooks/useInterpolateScroll";
 
 const DEBUG_SCENE = false;
@@ -28,15 +29,23 @@ const POINT_LIGHT_PROPS = {
 
 const Canvas: React.FC = () => {
     const logoRef = useRef<any>();
+    const earthRef = useRef<any>();
     const plRef = useRef<any>();
 
-    const [yDiff] = useInterpolateScroll([0, 14]);
+    // const [yDiff] = useInterpolateScroll([0, 16]);
+    const [earthY] = useInterpolateScroll([-25, -3.04]);
     useHelper(plRef, THREE.PointLightHelper, DEBUG_SCENE ? 1 : 0, 'blue');
 
+    // const { earthYPos } = useSpring({ earthYPos: earthY });
+
+    // useEffect(() => {
+    //     logoRef.current.position.y = LOGO_PROPS.position[1] + yDiff;
+    //     plRef.current.position.y = POINT_LIGHT_PROPS.position[1] + yDiff;
+    // }, [yDiff]);
+
     useEffect(() => {
-        logoRef.current.position.y = LOGO_PROPS.position[1] + yDiff;
-        plRef.current.position.y = POINT_LIGHT_PROPS.position[1] + yDiff;
-    }, [yDiff]);
+        earthRef.current.position.y = earthY;
+    }, [earthY]);
 
     const animation = useSpring({
         from: {
@@ -69,13 +78,17 @@ const Canvas: React.FC = () => {
     return (
         <>            
             {/* LOGO MESH */}
-            <Logo
+            {/* <Logo
                 ref={logoRef}
                 color="#242424"
                 position={logoPositionInterpolation as any}
                 rotation={logoRotationInterpolation as any}
                 scale={LOGO_PROPS.scale}
-            />
+            /> */}
+
+            {/* <Earth ref={earthRef as any} position={earthYPos.to(y => [3.47, y, 0]) as any} /> */}
+            <Earth ref={earthRef as any} position={[3.47, -25, 0]} />
+            {/* <Earth ref={earthRef} position={[3.47, earthY, 0]} /> */}
 
             {/* CAMERA & CONTROLS */}
             <OrthographicCamera scale={0.01} position={[0, 0, 10]} makeDefault />
@@ -99,7 +112,7 @@ const CanvasContainer = styled(animatedWeb.div)`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: ${({ theme }) => theme.bg};
+    background-color: ${({ theme }) => "red"};
     z-index: -1000;
 `;
 

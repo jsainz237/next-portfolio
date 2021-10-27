@@ -23,7 +23,7 @@ type Props = JSX.IntrinsicElements['mesh'] & {
   color?: MeshPhongMaterialProps['color'];
 }
 
-export const Logo: React.FC<Props> = React.forwardRef(({ materialProps, color, ...props }, ref) => {
+export const Logo = React.forwardRef<React.ReactNode, Props>(({ materialProps, color, ...props }, ref) => {
     const { nodes } = useGLTF('/logo.gltf') as GLTFResult;
     const [scale, setScale] = useState<number>(65);
 

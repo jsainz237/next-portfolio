@@ -9,8 +9,8 @@ import * as Styled from './styles';
 import { useInterpolateScroll } from '../../_utils/hooks/useInterpolateScroll';
 
 export const Projects: React.FC = () => {
-    const [circleYPos] = useInterpolateScroll([60, -20]); 
-    const [circleRad] = useInterpolateScroll([400, 700], [0, 50]);
+    // const [circleYPos] = useInterpolateScroll([60, -20]); 
+    // const [circleRad] = useInterpolateScroll([400, 700], [0, 50]);
 
     return (
         <Styled.ProjectsContainer>
@@ -27,11 +27,11 @@ export const Projects: React.FC = () => {
                     })
                 }
             </Styled.ProjectsListRow>
-            <Styled.CircleGrid x={-85} y={circleYPos}>
+            {/* <Styled.CircleGrid x={-85} y={circleYPos}>
                 { new Array(9).fill(0).map((_, ind) => 
                     <Styled.Circle key={ind} style={{ borderRadius: circleRad }} />
                 )}
-            </Styled.CircleGrid>
+            </Styled.CircleGrid> */}
         </Styled.ProjectsContainer>
     )
 }

@@ -14,6 +14,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta charSet="UTF-8" />
       </Head>
       <ThemeProvider theme={theme}>
+        <div
+          id='stats'
+          style={{ position: 'fixed', top: 25, left: 25 }}
+        />
         <Container style={{ paddingBottom: "1rem" }}>
           <Component {...pageProps} />
         </Container>

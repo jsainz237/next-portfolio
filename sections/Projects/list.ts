@@ -6,7 +6,7 @@ const projectsList: ProjectCardProps[] = [
         title: "Todo List",
         description: "A simple todo list app. Styling and accessability were the biggest\
         focuses for this project.",
-        img: "/project-screenshots/todo-list.png",
+        img: "assets/project-screenshots/todo-list.png",
         tech: [
             Icons.React,
             Icons.Typescript,
@@ -19,7 +19,7 @@ const projectsList: ProjectCardProps[] = [
     {
         title: "Server Dashboard",
         description: "A server statistics dashboard demo that I completed as part of a technical interview.",
-        img: "/project-screenshots/server-panel.png",
+        img: "assets/project-screenshots/server-panel.png",
         tech: [
             Icons.React,
             Icons.Typescript,
@@ -33,7 +33,7 @@ const projectsList: ProjectCardProps[] = [
     {
         title: "The Button",
         description: "A social experiment to see how much a human can care about a simple button.",
-        img: "/project-screenshots/the-button.png",
+        img: "assets/project-screenshots/the-button.png",
         tech: [
             Icons.Angular,
             Icons['Sass/Scss'],

@@ -13,7 +13,9 @@ body,
 }
 
 body {
-  background: #C8C6C6;
+  scroll-behavior: smooth;
+  height: unset;
+  background: #0C0C0C;
   font-family: 'Roboto', sans-serif;
 }
 
