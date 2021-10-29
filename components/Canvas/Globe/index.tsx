@@ -3,7 +3,7 @@ import { MeshProps } from "@react-three/fiber";
 import * as THREE from 'three';
 
 import * as shaders from './shaders';
-import { useInterpolateScroll } from "../../_utils/hooks/useInterpolateScroll";
+import { useInterpolateScroll } from "../../../_utils/hooks/useInterpolateScroll";
 
 type Props = MeshProps
 
