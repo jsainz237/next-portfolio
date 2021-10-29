@@ -13,6 +13,8 @@ body,
 }
 
 body {
+  height: unset;
+  overflow-x: hidden;
   background: #C8C6C6;
   font-family: 'Roboto', sans-serif;
 }

@@ -11,9 +11,6 @@ export const Contact: React.FC = () => {
                 <SectionTitle>Contact</SectionTitle>
                 <ContactForm />
             </Col>
-            <Col md={6}>
-                
-            </Col>
         </Row>
     )
 }

@@ -22,7 +22,7 @@ export function useInterpolateScroll(range1: [number, number], range2?: [number,
     }, []);
 
     const interpolateScroll = () => {
-        const maxScrollY = document.body.offsetHeight;
+        const maxScrollY = document.body.offsetHeight - window.innerHeight;
         const yVal = range(inputRange ?? [0, maxScrollY], outputRange, window.scrollY);
 
         set(clampFn(yVal, ...outputRange));
