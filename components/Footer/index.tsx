@@ -4,8 +4,8 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
 import config from 'config';
-import { SmallText, Link } from '../common';
-import Logo from '../../public/logo.svg';
+import { SmallText, Link } from '@components/common';
+import Logo from 'public/logo.svg';
 import * as Styled from './styles';
 
 export const Footer: React.FC = () => {

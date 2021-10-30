@@ -1,7 +1,7 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { SectionTitle } from '../../components/common';
+import { SectionTitle } from '@components/common';
 import { ContactForm } from './form';
 
 export const Contact: React.FC = () => {

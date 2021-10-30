@@ -1,5 +1,5 @@
-import Icons from '../../components/Icon';
-import { ProjectCardProps } from '../../components/ProjectCard';
+import Icons from '@components/Icon';
+import { ProjectCardProps } from '@components/ProjectCard';
 
 const projectsList: ProjectCardProps[] = [
     {

@@ -1,11 +1,11 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { SkillCard } from "../../components/SkillCard";
-import { SectionText, SectionTitle } from '../../components/common';
-import Icons from '../../components/Icon';
+import { SkillCard } from "@components/SkillCard";
+import { SectionText, SectionTitle } from '@components/common';
+import Icons from '@components/Icon';
+import { useInterpolateScroll } from "@utils/hooks/useInterpolateScroll";
 import * as Styled from './styles';
-import { useInterpolateScroll } from "../../_utils/hooks/useInterpolateScroll";
 
 export const Skills: React.FC = () => {
     const [barXPos] = useInterpolateScroll([-200, 0]);

@@ -3,9 +3,9 @@ import { ThemeProvider } from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Head from 'next/head';
 
+import { Footer } from '@components/Footer';
 import { theme } from '../styles/theme';
 import '../styles/globals.scss'
-import { Footer } from '../components/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

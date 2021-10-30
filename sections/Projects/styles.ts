@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Row from 'react-bootstrap/Row';
-import { AbsoluteWrapper } from '../../components/common';
+import { AbsoluteWrapper } from '@components/common';
 
 export const ProjectsContainer = styled.div`
     position: relative;

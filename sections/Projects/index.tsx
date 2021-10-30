@@ -2,11 +2,11 @@ import { useEffect, useState} from 'react';
 import { to } from 'react-spring';
 import Col from 'react-bootstrap/Col';
 
-import { ProjectCard } from '../../components/ProjectCard';
-import { SectionTitle } from '../../components/common';
+import { ProjectCard } from '@components/ProjectCard';
+import { SectionTitle } from '@components/common';
+import { useInterpolateScroll } from '@utils/hooks/useInterpolateScroll';
 import projectList from './list';
 import * as Styled from './styles';
-import { useInterpolateScroll } from '../../_utils/hooks/useInterpolateScroll';
 
 export const Projects: React.FC = () => {
     const [circleYPos] = useInterpolateScroll([60, -20]); 

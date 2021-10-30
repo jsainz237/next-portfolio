@@ -10,7 +10,7 @@ import { a, config, to, useSpring } from '@react-spring/three';
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 import { MeshPhongMaterialProps } from '@react-three/fiber';
 
-import { useInterpolateScroll } from '../../_utils/hooks/useInterpolateScroll';
+import { useInterpolateScroll } from '@utils/hooks/useInterpolateScroll';
 
 type GLTFResult = GLTF & {
   nodes: {

@@ -5,8 +5,8 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
 import config from 'config';
+import { Button, Link } from "@components/common";
 import * as Styled from './styles';
-import { Button, Link } from "../../components/common";
 
 export const Intro: React.FC = () => {
     return (

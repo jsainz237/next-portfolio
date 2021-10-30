@@ -7,7 +7,7 @@ import { useForm, useFormState, Controller, Control } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
-import { Button } from '../../components/common';
+import { Button } from '@components/common';
 import * as Styled from './styles';
 
 type FormData = {

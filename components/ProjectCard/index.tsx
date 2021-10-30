@@ -1,4 +1,4 @@
-import { Button } from '../../components/common';
+import { Button } from '@components/common';
 import * as Styled from './styles';
 
 export interface ProjectCardProps extends Styled.ProjectCardProps {

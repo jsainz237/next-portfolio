@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AbsoluteWrapper } from '../../components/common';
+import { AbsoluteWrapper } from '@components/common';
 
 export const SkillGrid = styled.div`
     display: grid;
