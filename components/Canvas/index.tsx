@@ -24,7 +24,7 @@ const CanvasContainer = styled(animatedWeb.div)`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: -1000;
     pointer-events: none;
 `;
 

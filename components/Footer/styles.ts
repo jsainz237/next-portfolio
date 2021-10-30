@@ -5,14 +5,14 @@ export const FooterWrapper = styled.div`
     width: 100vw;
     padding: 2rem;
     margin-top: 4rem;
+    border-top: 1px solid ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.primary};
-    background: ${({ theme }) => theme.secondary};
-    z-index: 0;
+    background: ${({ theme }) => theme.bg};
 `;
 
 export const FooterContainer = styled(Container)`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 `;
 
