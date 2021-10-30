@@ -1,11 +1,12 @@
 import React from "react";
-import { a, config, useTrail } from "@react-spring/web";
+import { a, config as springConfig, useTrail } from "@react-spring/web";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
+import config from 'config';
 import * as Styled from './styles';
-import { Button } from "../../components/common";
+import { Button, Link } from "../../components/common";
 
 export const Intro: React.FC = () => {
     return (
@@ -16,9 +17,15 @@ export const Intro: React.FC = () => {
             </Header>
             <Links>
                 <Button color="#a9b4bf" style={{ opacity: 1 }}>contact</Button>
-                <FontAwesomeIcon icon={faGithub} color="#a9b4bf" size={"2x"} />
-                <FontAwesomeIcon icon={faLinkedin} color="#a9b4bf" size={"2x"} />
-                <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />
+                <Link href={config.links.github}>
+                    <FontAwesomeIcon icon={faGithub} color="#a9b4bf" size={"2x"} />
+                </Link>
+                <Link href={config.links.linkedin}>
+                    <FontAwesomeIcon icon={faLinkedin} color="#a9b4bf" size={"2x"} />
+                </Link>
+                <Link href={config.links.resume}>
+                    <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />
+                </Link>
             </Links>
         </Styled.IntroWrapper>
     )
@@ -30,7 +37,7 @@ const Header: React.FC = ({ children }) => {
         from: { opacity: 0, y: -45 },
         to: { opacity: 1, y: 0 },
         delay: 1000,
-        config: config.slow,
+        config: springConfig.slow,
     });
 
     return <>
@@ -50,7 +57,7 @@ const Links: React.FC = ({ children }) => {
         from: { opacity: 0, x: -45 },
         to: { opacity: 1, x: 0 },
         delay: 1000,
-        config: config.slow,
+        config: springConfig.slow,
     });
 
     return (
