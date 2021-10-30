@@ -24,8 +24,7 @@ const CanvasContainer = styled(animatedWeb.div)`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: ${({ theme }) => theme.bg};
-    z-index: -1000;
+    z-index: 0;
     pointer-events: none;
 `;
 

@@ -5,6 +5,7 @@ import Head from 'next/head';
 
 import { theme } from '../styles/theme';
 import '../styles/globals.scss'
+import { Footer } from '../components/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Container style={{ paddingBottom: "1rem" }}>
           <Component {...pageProps} />
         </Container>
+        <Footer />
       </ThemeProvider>
     </>
   );

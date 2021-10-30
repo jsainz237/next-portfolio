@@ -8,7 +8,7 @@ import { useInterpolateScroll } from "../../../_utils/hooks/useInterpolateScroll
 type Props = MeshProps
 
 export const Globe: React.FC<Props> = (props) => {
-    const [yPosition] = useInterpolateScroll([-20, -3.3]);
+    const [yPosition] = useInterpolateScroll([-20, -0.9]);
     const [yRotation] = useInterpolateScroll([-1, 0]);
 
     const earthMap = useMemo(() => {
@@ -18,9 +18,9 @@ export const Globe: React.FC<Props> = (props) => {
     return (
         <>
             <mesh
-                position={[3.4, yPosition, 0]}
+                position={[3.2, yPosition, 0]}
                 rotation={[0, yRotation, 0]}
-                scale={0.3}
+                scale={0.27}
                 {...props}
             >
                 <sphereGeometry args={[10, 100, 100]} />
