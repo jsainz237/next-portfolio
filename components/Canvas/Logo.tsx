@@ -41,11 +41,11 @@ export const Logo: React.FC<Props> = ({ color }) => {
     const logoRef = useRef<any>();
     const plRef = useRef<any>();
 
-    const [yDiff] = useInterpolateScroll([0, 14]);
+    const [yDiff] = useInterpolateScroll([0, 18]);
 
     useEffect(() => {
-        logoRef.current.position.y = LOGO_PROPS.position[1] + yDiff;
-        plRef.current.position.y = POINT_LIGHT_PROPS.position[1] + yDiff;
+        // logoRef.current.position.y += yDiff;
+        plRef.current.position.y += yDiff;
     }, [yDiff]);
 
     const animation = useSpring({
@@ -68,8 +68,8 @@ export const Logo: React.FC<Props> = ({ color }) => {
         }
     })
 
-    const logoPositionInterpolation = animation.py.to(yVal => 
-        [LOGO_PROPS.position[0], yVal, LOGO_PROPS.position[1]]
+    const logoPositionInterpolation = animation.py.to(yVal =>
+        [LOGO_PROPS.position[0], yVal + yDiff, LOGO_PROPS.position[1]]
     );
 
     const logoRotationInterpolation = to([animation.rx, animation.rz], (rx, rz) =>

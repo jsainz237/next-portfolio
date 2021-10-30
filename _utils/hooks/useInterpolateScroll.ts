@@ -17,6 +17,7 @@ export function useInterpolateScroll(range1: [number, number], range2?: [number,
     const clampFn = outputRange[0] > outputRange[1] ? invclamp : clamp;
 
     useEffect(() => {
+        interpolateScroll();
         window.addEventListener('scroll', interpolateScroll);
         return () => window.removeEventListener('scroll', interpolateScroll);
     }, []);
