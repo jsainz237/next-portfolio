@@ -68,13 +68,20 @@ export const Logo: React.FC<Props> = ({ color }) => {
         }
     })
 
-    const logoPositionInterpolation = animation.py.to(yVal =>
-        [LOGO_PROPS.position[0], yVal + yDiff, LOGO_PROPS.position[1]]
-    );
+    const logoPosition = animation.py.to(y => {
+        const [x, _, z] = LOGO_PROPS.position;
+        return [x, y + yDiff, z];
+    });
 
-    const logoRotationInterpolation = to([animation.rx, animation.rz], (rx, rz) =>
-        [rx, LOGO_PROPS.rotation[1], rz]
-    );
+    const logoRotation = to([animation.rx, animation.rz], (rx, rz) => {
+        const [_x, y, _z] = LOGO_PROPS.rotation;
+        return [rx, y, rz];
+    });
+
+    const lightPosition = to([], () => {
+        const [x, y, z] = POINT_LIGHT_PROPS.position;
+        return [x, y + yDiff, z];
+    });
 
     return (
         <>
@@ -82,8 +89,8 @@ export const Logo: React.FC<Props> = ({ color }) => {
                 ref={logoRef}
                 geometry={nodes.Union_4001.geometry}
                 scale={LOGO_PROPS.scale}
-                position={logoPositionInterpolation as any}
-                rotation={logoRotationInterpolation as any}
+                position={logoPosition as any}
+                rotation={logoRotation as any}
             >
                 <a.meshPhongMaterial shininess={5} color={color || '#5A5A5A'} />
             </a.mesh>
@@ -92,7 +99,7 @@ export const Logo: React.FC<Props> = ({ color }) => {
             <a.pointLight
                 ref={plRef}
                 color="#C2E0FF"
-                position={POINT_LIGHT_PROPS.position as any}
+                position={lightPosition as any}
                 intensity={animation.pl2Intensity as any}
             />
         </>
