@@ -12,7 +12,7 @@ export const FooterWrapper = styled.div`
 
 export const FooterContainer = styled(Container)`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 `;
 

@@ -5,7 +5,6 @@ import { Intro } from '../sections/Intro';
 import { Skills } from '../sections/Skills';
 import { Projects } from '../sections/Projects';
 import { Contact } from '../sections/Contact';
-import { Footer } from '../components/Footer';
 
 const Home: NextPage = () => {
 
