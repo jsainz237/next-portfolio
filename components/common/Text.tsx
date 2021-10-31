@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const SectionText = styled.p`
     color: ${({ theme }) => theme.primary};
     font-size: 1.4rem;
+
+    ${({ theme }) => theme.utils.down('xl')} {
+        font-size: 1.3rem;
+    }
 `;
 
 export const SectionTitle = styled.h1`

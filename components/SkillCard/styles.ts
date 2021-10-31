@@ -32,4 +32,12 @@ export const SkillCard = styled.div<SkillCardStyleProps>`
         transform: scale(1.5);
         box-shadow: ${({ theme }) => `0 0 12px 0 ${theme.bg}`};
     }
+
+    ${({ theme }) => theme.utils.down('sm')} {
+        height: 3.25rem;
+        svg {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
 `
