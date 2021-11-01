@@ -10,7 +10,8 @@ import { a, config, to, useSpring } from '@react-spring/three';
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 import { MeshPhongMaterialProps } from '@react-three/fiber';
 
-import { useInterpolateScroll } from '@utils/hooks';
+import { useInterpolateScroll, useScreenSize } from '@utils/hooks';
+import { theme } from 'styles/theme';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -42,11 +43,8 @@ export const Logo: React.FC<Props> = ({ color }) => {
     const plRef = useRef<any>();
 
     const [yDiff] = useInterpolateScroll([0, 18]);
-
-    useEffect(() => {
-        // logoRef.current.position.y += yDiff;
-        plRef.current.position.y += yDiff;
-    }, [yDiff]);
+    const [yDiffSm] = useInterpolateScroll([0, 24]);
+    const [_, bp] = useScreenSize({});
 
     const animation = useSpring({
         from: {
@@ -69,8 +67,9 @@ export const Logo: React.FC<Props> = ({ color }) => {
     })
 
     const logoPosition = animation.py.to(y => {
+        const diff = theme.breakpts[bp] <= theme.breakpts['lg'] ? yDiffSm : yDiff;
         const [x, _, z] = LOGO_PROPS.position;
-        return [x, y + yDiff, z];
+        return [x, y + diff, z];
     });
 
     const logoRotation = to([animation.rx, animation.rz], (rx, rz) => {

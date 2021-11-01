@@ -4,12 +4,12 @@ import { theme, Breakpoint } from 'styles/theme';
 type ScreenSizeMap = {
     [key in Breakpoint]?: any;
 } & {
-    default: any;
+    default?: any;
 };
 
-export const useScreenSize = (map: ScreenSizeMap) => {
+export const useScreenSize = (map: ScreenSizeMap): [any, Breakpoint] => {
     const [val, set] = useState<any>(map.default);
-    const [bp, setBp] = useState<Breakpoint>();
+    const [bp, setBp] = useState<Breakpoint>('xxl');
     
     useEffect(() => {
         calculateBreakpoint();
