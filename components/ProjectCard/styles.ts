@@ -14,14 +14,13 @@ export const Overlay = styled.div`
     width: 100%;
     opacity: 0;
     background: black;
-    /* border-radius: ${() => borderRadius}; */
     transition: opacity 0.2s ease;
 `
 
 export const ProjectsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 1rem 2rem;
     width: 100%;
@@ -61,10 +60,6 @@ export const AspectRatio = styled.div<ProjectCardProps>`
     // show at xs-lg screens
     ${({ theme }) => theme.utils.down('lg')} {
         aspect-ratio: ${({ first }) => first ? `21 / 9` : `16 / 9`};
-
-        & ${ProjectsContainer} {
-            padding: ${({ first }) => first && `3rem 8rem`};
-        }
     }
 
     // hide at lg screen size and up
@@ -79,16 +74,6 @@ export const AspectRatio = styled.div<ProjectCardProps>`
 
     ${({ theme }) => theme.utils.down('md')} {
         aspect-ratio: 16 / 9;
-
-        & ${ProjectsContainer} {
-            padding: 3rem 5rem;
-        }
-    }
-
-    ${({ theme }) => theme.utils.down('xs')} {
-        & ${ProjectsContainer} {
-            padding: 1rem;
-        }
     }
 
     &:hover ${ProjectsContainer} {
@@ -113,6 +98,10 @@ export const IconsWrapper = styled.div`
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
+
+    ${({ theme }) => theme.utils.down('xs')} {
+        display: none;
+    }
 
     * {
         margin: 0 0.25rem;
