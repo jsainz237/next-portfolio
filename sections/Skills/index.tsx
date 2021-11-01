@@ -3,12 +3,23 @@ import Col from "react-bootstrap/Col";
 
 import { SkillCard } from "@components/SkillCard";
 import { SectionText, SectionTitle } from '@components/common';
+import { useInterpolateScroll, useScreenSize } from "@utils/hooks";
 import Icons from '@components/Icon';
-import { useInterpolateScroll } from "@utils/hooks/useInterpolateScroll";
 import * as Styled from './styles';
+import { useEffect } from "react";
 
 export const Skills: React.FC = () => {
     const [barXPos] = useInterpolateScroll([-200, 0]);
+    const xDiff = useScreenSize({
+        'xl': 50,
+        'lg': 85,
+        'sm': 100,
+        default: 0,
+    });
+
+    useEffect(() => {
+        console.log(xDiff);
+    }, [xDiff]);
 
     return (
         <Row className="gx-5">
@@ -21,7 +32,7 @@ export const Skills: React.FC = () => {
                 </SectionText>
             </Col>
             <Col md={12} lg={6} style={{ position: "relative" }}>
-                <Styled.DecorationBar x={barXPos} y={43} right/>
+                <Styled.DecorationBar x={barXPos + xDiff} y={43} right/>
                 <Styled.SkillGrid>
                     {
                         Object.entries(Icons).map(([name, { Icon }], ind) => {

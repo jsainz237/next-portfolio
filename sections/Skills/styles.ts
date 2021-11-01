@@ -48,18 +48,15 @@ export const DecorationBar = styled(AbsoluteWrapper)`
 
     ${({ theme }) => theme.utils.down('xl')} {
         width: 50vw;
-        right: ${({ x }) => `${x + 50}px`} !important;
     }
 
     ${({ theme }) => theme.utils.down('lg')} {
         width: 70vw;
-        right: ${({ x }) => `${x + 85}px`} !important;
     }
 
     ${({ theme }) => theme.utils.down('sm')} {
         width: 70vw;
         height: 3rem;
         top: 51px !important;
-        right: ${({ x }) => `${x + 100}px`} !important;
     }
 `;

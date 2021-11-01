@@ -1,4 +1,3 @@
-
 const breakpts = {
     xs: 451,
     sm: 576,
@@ -8,7 +7,8 @@ const breakpts = {
     xxl: 1400,
 }
 
-type Breakpoint = keyof typeof breakpts;
+export type Breakpoint = keyof typeof breakpts;
+
 const utils = {
     up: (bp: Breakpoint) => `@media(min-width: ${breakpts[bp]}px)`,
     down: (bp: Breakpoint) => `@media(max-width: ${breakpts[bp]}px)`,
