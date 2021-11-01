@@ -10,16 +10,13 @@ import { useEffect } from "react";
 
 export const Skills: React.FC = () => {
     const [barXPos] = useInterpolateScroll([-200, 0]);
-    const xDiff = useScreenSize({
+    const [xDiff] = useScreenSize({
         'xl': 50,
         'lg': 85,
         'sm': 100,
+        'xs': 100,
         default: 0,
     });
-
-    useEffect(() => {
-        console.log(xDiff);
-    }, [xDiff]);
 
     return (
         <Row className="gx-5">

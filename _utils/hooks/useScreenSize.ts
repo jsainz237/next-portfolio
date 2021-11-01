@@ -9,6 +9,7 @@ type ScreenSizeMap = {
 
 export const useScreenSize = (map: ScreenSizeMap) => {
     const [val, set] = useState<any>(map.default);
+    const [bp, setBp] = useState<Breakpoint>();
     
     useEffect(() => {
         calculateBreakpoint();
@@ -27,7 +28,8 @@ export const useScreenSize = (map: ScreenSizeMap) => {
         }
         
         set(map[breakpoint] ?? map.default);
+        setBp(breakpoint);
     }
 
-    return val;
+    return [val, bp];
 }
