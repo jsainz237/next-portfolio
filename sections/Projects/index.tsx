@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 
 import { ProjectCard } from '@components/ProjectCard';
 import { SectionTitle } from '@components/common';
-import { useInterpolateScroll } from '@utils/hooks/useInterpolateScroll';
+import { useInterpolateScroll } from '@utils/hooks';
 import projectList from './list';
 import * as Styled from './styles';
 
