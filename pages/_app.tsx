@@ -29,8 +29,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Container style={{ paddingBottom: "1rem" }}>
             <Component {...pageProps} />
           </Container>
-          <Footer />
         </StyledWrapper>
+        <Footer />
       </ThemeProvider>
     </>
   );
