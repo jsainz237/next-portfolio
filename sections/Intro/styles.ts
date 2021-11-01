@@ -11,12 +11,28 @@ export const IntroWrapper = styled.div`
         font-family: 'Roboto Slab', serif;
         font-size: 5rem;
         color: #a9b4bf;
+
+        ${({ theme }) => theme.utils.down('md')} {
+            font-size: 4rem;
+        }
+
+        ${({ theme }) => theme.utils.down('sm')} {
+            font-size: 2.5rem;
+        }
     }
 
     p {
         color: #a9b4bf;
         font-size: 1.8rem;
         font-weight: 400;
+
+        ${({ theme }) => theme.utils.down('md')} {
+            font-size: 1.4rem;
+        }
+
+        ${({ theme }) => theme.utils.down('sm')} {
+            font-size: 1rem;
+        }
     }
 `
 
