@@ -2,8 +2,14 @@ import styled from "styled-components";
 
 const StyledA = styled.a`
     transition: opacity 0.3s ease;
-    &:hover {
-        opacity: 0.3;
+    text-decoration: none;
+
+    & > * {
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover, & > *:hover {
+        opacity: 0.5;
     }
 `;
 

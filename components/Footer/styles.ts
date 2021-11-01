@@ -10,8 +10,12 @@ export const FooterWrapper = styled.div`
     background: ${({ theme }) => theme.bg};
 `;
 
-export const FooterContainer = styled(Container)`
+interface FooterContainerProps {
+    isSmallScreen?: boolean;
+}
+export const FooterContainer = styled(Container)<FooterContainerProps>`
     display: flex;
+    flex-direction: ${({ isSmallScreen }) => isSmallScreen ? 'column' : 'row'};
     justify-content: space-between;
     align-items: center;
 `;
