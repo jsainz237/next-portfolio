@@ -21,22 +21,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     return (
         <Styled.AspectRatio {...props}>
-            <Styled.ProjectsContainer>
+            <Styled.ProjectContainer>
                 <Styled.Overlay />
-                {/* <div> */}
-                    <h1>{title}</h1>
-                    <Styled.IconsWrapper>
-                        {
-                            tech.map(({ Icon }, ind) => 
-                                <Icon key={ind} height={iconSize} width={iconSize} />) 
-                        }
-                    </Styled.IconsWrapper>
-                    <p>{description}</p>
-                {/* </div> */}
+                <h1>{title}</h1>
+                <Styled.IconsWrapper>
+                    {
+                        tech.map(({ Icon }, ind) => 
+                            <Icon key={ind} height={iconSize} width={iconSize} />) 
+                    }
+                </Styled.IconsWrapper>
+                <p>{description}</p>
                 <a href={link} target="_blank" rel="noreferrer">
                     <Button>{buttonText}</Button>
                 </a>
-            </Styled.ProjectsContainer>
+            </Styled.ProjectContainer>
         </Styled.AspectRatio>
     )
 }

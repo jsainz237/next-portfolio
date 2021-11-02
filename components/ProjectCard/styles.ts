@@ -17,7 +17,8 @@ export const Overlay = styled.div`
     transition: opacity 0.2s ease;
 `
 
-export const ProjectsContainer = styled.div`
+export const ProjectContainer = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -37,6 +38,20 @@ export const ProjectsContainer = styled.div`
 
     h1 { font-size: 1.5rem; }
     p  { font-size: 0.825rem; }
+
+    &:hover {
+        backdrop-filter: blur(3px);
+    }
+
+    &:hover * {
+        opacity: 1;
+        z-index: 1000;
+    }
+
+    &:hover > ${Overlay} {
+        opacity: 0.9;
+    }
+
 `
 
 export const Title = styled.h1`
@@ -76,18 +91,18 @@ export const AspectRatio = styled.div<ProjectCardProps>`
         aspect-ratio: 16 / 9;
     }
 
-    &:hover ${ProjectsContainer} {
+    /* &:hover ${ProjectContainer} {
         backdrop-filter: blur(3px);
     }
 
-    &:hover ${ProjectsContainer} * {
+    &:hover ${ProjectContainer} * {
         opacity: 1;
         z-index: 1000;
     }
 
-    &:hover ${ProjectsContainer} > ${Overlay} {
+    &:hover ${ProjectContainer} > ${Overlay} {
         opacity: 0.9;
-    }
+    } */
 `
 
 export const IconsWrapper = styled.div`
