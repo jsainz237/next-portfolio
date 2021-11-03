@@ -20,11 +20,15 @@ export const Globe: React.FC<Props> = (props) => {
         return new THREE.TextureLoader().load('assets/earth-dot-map.png');
     }, []);
 
+    const markerColor = "#45505a";
+
     return (
-        <>
+        <group 
+            position={[3.2, isSmallScreen ? yPositionSmall : yPosition, 0]}
+            rotation={[ 0, yRotation, 0]}
+        >
+            {/* Sphere w/ Texture Map */}
             <mesh
-                position={[3.2, isSmallScreen ? yPositionSmall : yPosition, 0]}
-                rotation={[0, yRotation, 0]}
                 scale={0.27}
                 {...props}
             >
@@ -40,16 +44,23 @@ export const Globe: React.FC<Props> = (props) => {
                 />
             </mesh>
 
-            {/* Haven't figured the marker out yet... */}
-            {/* <mesh
-                ref={markerRef}
-                position={[markerPX, -2.75, 4.25]}
-                rotation={[1.28, 0, markerRZ]}
-                scale={0.1}
+            {/* Marker (technically a small cylinder) */}
+            <mesh
+                position={[-1.25, 0.4, 2.31]}
+                rotation={[1.44, 0, 0.1]}
+                scale={[0.2, 0.1, 0.2]}
             >
-                <cylinderGeometry args={[0.3, 0.3, 1, 20, 1, false]} />
-                <meshNormalMaterial color="#ff00ff" />
-            </mesh> */}
-        </>
+                <cylinderGeometry args={[0.2, 0.2, 2, 20, 1, false]} />
+                <meshBasicMaterial color={markerColor} />
+            </mesh>
+            <mesh
+                position={[-1.25, 0.41, 2.42]}
+                rotation={[-0.25, -0.35, 0]}
+                scale={0.2}
+            >
+                <ringGeometry args={[0.4, 0.55, 30, 0, 0, 6.3]} />
+                <meshBasicMaterial color={markerColor} />
+            </mesh>
+        </group>
     )
 }
