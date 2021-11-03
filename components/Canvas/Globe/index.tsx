@@ -21,35 +21,22 @@ export const Globe: React.FC<Props> = (props) => {
     }, []);
 
     return (
-        <>
-            <mesh
-                position={[3.2, isSmallScreen ? yPositionSmall : yPosition, 0]}
-                rotation={[0, yRotation, 0]}
-                scale={0.27}
-                {...props}
-            >
-                <sphereGeometry args={[10, 100, 100]} />
-                <shaderMaterial
-                    vertexShader={shaders.vertex}
-                    fragmentShader={shaders.fragment}
-                    uniforms={{
-                        globeTexture: {
-                            value: earthMap
-                        }
-                    }}
-                />
-            </mesh>
-
-            {/* Haven't figured the marker out yet... */}
-            {/* <mesh
-                ref={markerRef}
-                position={[markerPX, -2.75, 4.25]}
-                rotation={[1.28, 0, markerRZ]}
-                scale={0.1}
-            >
-                <cylinderGeometry args={[0.3, 0.3, 1, 20, 1, false]} />
-                <meshNormalMaterial color="#ff00ff" />
-            </mesh> */}
-        </>
+        <mesh
+            position={[3.2, isSmallScreen ? yPositionSmall : yPosition, 0]}
+            rotation={[0, yRotation, 0]}
+            scale={0.27}
+            {...props}
+        >
+            <sphereGeometry args={[10, 100, 100]} />
+            <shaderMaterial
+                vertexShader={shaders.vertex}
+                fragmentShader={shaders.fragment}
+                uniforms={{
+                    globeTexture: {
+                        value: earthMap
+                    }
+                }}
+            />
+        </mesh>
     )
 }
