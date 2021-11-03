@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Button } from '@components/common';
 import * as Styled from './styles';
 
@@ -18,11 +19,28 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     ...props 
 }) => {
     const iconSize = "1.5rem";
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+    const [isPressable, setIsPressable] = useState<boolean>(false);
+
+    // This prevents mobile users from accidentally
+    // clicking the button when opacity is 0
+    useEffect(() => {
+        if(isHovered) {
+            setIsPressable(true);
+        } else {
+            setTimeout(() => setIsPressable(false), 300);
+        }
+    }, [isHovered])
 
     return (
-        <Styled.AspectRatio {...props}>
+        <Styled.AspectRatio
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            {...props}
+        >
             <Styled.ProjectContainer>
                 <Styled.Overlay />
+                <Styled.Border />
                 <h1>{title}</h1>
                 <Styled.IconsWrapper>
                     {
@@ -32,7 +50,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 </Styled.IconsWrapper>
                 <p>{description}</p>
                 <a href={link} target="_blank" rel="noreferrer">
-                    <Button>{buttonText}</Button>
+                    <Button style={{ pointerEvents: isPressable ? 'unset' : 'none' }}>
+                        {buttonText}
+                    </Button>
                 </a>
             </Styled.ProjectContainer>
         </Styled.AspectRatio>

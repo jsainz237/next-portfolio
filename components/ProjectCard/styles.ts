@@ -13,8 +13,16 @@ export const Overlay = styled.div`
     height: 100%;
     width: 100%;
     opacity: 0;
+    border-radius: ${borderRadius};
     background: black;
     transition: opacity 0.2s ease;
+`
+
+export const Border = styled(Overlay)`
+    opacity: 1;
+    background: none;
+    border: 2px solid white;
+    z-index: 2000;
 `
 
 export const ProjectContainer = styled.div`
@@ -26,6 +34,7 @@ export const ProjectContainer = styled.div`
     padding: 1rem 2rem;
     width: 100%;
     height: 100%;
+    border-radius: ${borderRadius};
     transition: all 0.2s ease;
     backdrop-filter: blur(0);
 
@@ -51,7 +60,6 @@ export const ProjectContainer = styled.div`
     &:hover > ${Overlay} {
         opacity: 0.9;
     }
-
 `
 
 export const Title = styled.h1`
@@ -64,7 +72,6 @@ export const Title = styled.h1`
 
 export const AspectRatio = styled.div<ProjectCardProps>`
     border-radius: ${() => borderRadius};
-    border: 2px solid white;
     background: ${({ img }) => img && `url(${img})`};
     background-repeat: no-repeat;
     background-size: cover;
@@ -90,19 +97,6 @@ export const AspectRatio = styled.div<ProjectCardProps>`
     ${({ theme }) => theme.utils.down('md')} {
         aspect-ratio: 16 / 9;
     }
-
-    /* &:hover ${ProjectContainer} {
-        backdrop-filter: blur(3px);
-    }
-
-    &:hover ${ProjectContainer} * {
-        opacity: 1;
-        z-index: 1000;
-    }
-
-    &:hover ${ProjectContainer} > ${Overlay} {
-        opacity: 0.9;
-    } */
 `
 
 export const IconsWrapper = styled.div`
