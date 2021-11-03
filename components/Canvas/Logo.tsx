@@ -42,6 +42,8 @@ export const Logo: React.FC<Props> = ({ color }) => {
     const logoRef = useRef<any>();
     const plRef = useRef<any>();
 
+    const [lightXpos] = useInterpolateScroll([0, -30]);
+
     const [yDiff] = useInterpolateScroll([0, 18]);
     const [yDiffSm] = useInterpolateScroll([0, 24]);
     const [_, bp] = useScreenSize({});
@@ -79,7 +81,7 @@ export const Logo: React.FC<Props> = ({ color }) => {
 
     const lightPosition = to([], () => {
         const [x, y, z] = POINT_LIGHT_PROPS.position;
-        return [x, y + yDiff, z];
+        return [x + lightXpos, y + yDiff, z];
     });
 
     return (
