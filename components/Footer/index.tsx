@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
 
     return (
         <Styled.FooterWrapper>
-            <Styled.FooterContainer isSmallScreen={isSmallScreen}>
+            <Styled.FooterContainer $isSmallScreen={isSmallScreen}>
                 <div>
                     <Logo height={35} fill={theme.primary} style={{ marginBottom: '0.5rem' }} />
                     { !isSmallScreen && <SmallText>Made by yours truly © 2021</SmallText> }

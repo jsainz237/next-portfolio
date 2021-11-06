@@ -11,11 +11,11 @@ export const FooterWrapper = styled.div`
 `;
 
 interface FooterContainerProps {
-    isSmallScreen?: boolean;
+    $isSmallScreen?: boolean;
 }
 export const FooterContainer = styled(Container)<FooterContainerProps>`
     display: flex;
-    flex-direction: ${({ isSmallScreen }) => isSmallScreen ? 'column' : 'row'};
+    flex-direction: ${({ $isSmallScreen }) => $isSmallScreen ? 'column' : 'row'};
     justify-content: space-between;
     align-items: center;
 `;
