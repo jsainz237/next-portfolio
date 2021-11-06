@@ -13,7 +13,7 @@ export const Projects: React.FC = () => {
     const [circleRad] = useInterpolateScroll([400, 700], [0, 50]);
 
     return (
-        <Styled.ProjectsContainer>
+        <Styled.ProjectsContainer id="projects">
             <SectionTitle>Recent Projects</SectionTitle>
             <Styled.ProjectsListRow>
                 {

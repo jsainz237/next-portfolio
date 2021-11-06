@@ -19,7 +19,7 @@ export const Skills: React.FC = () => {
     });
 
     return (
-        <Row className="gx-5">
+        <Row id="skills" className="gx-5">
             <Col md={12} lg={6} style={{ zIndex: 100 }}>
                 <SectionTitle>My Skills</SectionTitle>
                 <SectionText>
