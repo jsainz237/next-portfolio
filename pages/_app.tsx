@@ -8,7 +8,9 @@ import { theme } from '../styles/theme';
 import '../styles/globals.scss'
 
 const StyledWrapper = styled.div`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
   
@@ -29,8 +31,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Container style={{ paddingBottom: "1rem" }}>
             <Component {...pageProps} />
           </Container>
+          <Footer />
         </StyledWrapper>
-        <Footer />
       </ThemeProvider>
     </>
   );

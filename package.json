@@ -24,6 +24,7 @@
     "bootstrap": "^5.1.0",
     "d3-ease": "^3.0.1",
     "glslify": "^7.1.1",
+    "marksy": "^8.0.0",
     "next": "11.1.0",
     "next-transpile-modules": "^8.0.0",
     "react": "17.0.2",
@@ -49,6 +50,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "jest": "^27.3.0",
+    "raw-loader": "^4.0.2",
     "typescript": "4.3.5"
   }
 }

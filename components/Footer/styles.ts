@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 export const FooterWrapper = styled.div`
     width: 100vw;
     padding: 2rem;
-    margin-top: 4rem;
+    margin-top: auto;
     border-top: 1px solid ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.primary};
     background: ${({ theme }) => theme.bg};

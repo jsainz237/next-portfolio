@@ -6,7 +6,7 @@ import { ContactForm } from './form';
 
 export const Contact: React.FC = () => {
     return (
-        <Row id="contact">
+        <Row id="contact" style={{ marginBottom: '4rem' }}>
             <Col md={6}>
                 <SectionTitle>Contact</SectionTitle>
                 <ContactForm />
