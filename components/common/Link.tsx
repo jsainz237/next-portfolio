@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import NextLink from 'next/link';
 
 const StyledA = styled.a`
     transition: opacity 0.3s ease;
+    color: ${({ theme }) => theme.secondary};
     text-decoration: none;
 
     & > * {
@@ -9,6 +11,7 @@ const StyledA = styled.a`
     }
 
     &:hover, & > *:hover {
+        color: ${({ theme }) => theme.secondary};
         opacity: 0.5;
     }
 `;
@@ -18,7 +21,9 @@ interface Props {
 }
 
 export const Link: React.FC<Props> = ({ href, children }) => (
-    <StyledA href={href} target="_blank">
-        {children}
-    </StyledA>
+    <NextLink href={href} passHref>
+        <StyledA target={href.startsWith('/') ? undefined : "_blank"}>
+            {children}
+        </StyledA>
+    </NextLink>
 );
