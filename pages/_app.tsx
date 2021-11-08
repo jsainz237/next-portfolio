@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import styled, { ThemeProvider } from 'styled-components';
 import Container from 'react-bootstrap/Container';
@@ -23,9 +24,11 @@ const StyledWrapper = styled.div`
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   useEffect(() => {
     prism.highlightAll();
-  }, []);
+  }, [router.pathname]);
 
   return (
     <>
