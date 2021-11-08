@@ -12,10 +12,11 @@ import { theme } from '../styles/theme';
 import '../styles/globals.scss'
 
 const StyledWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
   
   ${({ theme }) => theme.utils.down('sm')} {
