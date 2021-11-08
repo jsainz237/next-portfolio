@@ -1,14 +1,14 @@
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app'
+import Head from 'next/head';
 import styled, { ThemeProvider } from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import prism from 'prismjs';
 import "prismjs/components/prism-typescript";
-import Head from 'next/head';
 
 import { Footer } from '@components/Footer';
 import { theme } from '../styles/theme';
 import '../styles/globals.scss'
-import { useEffect } from 'react';
 
 const StyledWrapper = styled.div`
   display: flex;

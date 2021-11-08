@@ -13,8 +13,9 @@ export const useScreenSize = (map: ScreenSizeMap): [any, Breakpoint] => {
     
     useEffect(() => {
         calculateBreakpoint();
-        window.addEventListener('resize', calculateBreakpoint)
-    });
+        window.addEventListener('resize', calculateBreakpoint);
+        return () => window.removeEventListener('resize', calculateBreakpoint);
+    }, []);
 
     const calculateBreakpoint = () => {
         const screen = document.body.clientWidth;
