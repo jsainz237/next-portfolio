@@ -3,7 +3,7 @@ import { a } from '@react-spring/web';
 
 export const Banner = a(styled.div`
     position: absolute;
-    width: 10rem;
+    width: 12rem;
     height: 2rem;
     padding: 0.25rem;
     background-color: ${({ theme }) => theme.primary};
