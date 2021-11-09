@@ -1,8 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { SESV2 } from 'aws-sdk';
+import * as AWS from 'aws-sdk';
 import * as yup from 'yup';
 
-const SES = new SESV2({ region: 'us-east-1' });
+AWS.config.update({
+    credentials: {
+        accessKeyId: process.env.MY_AWS_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.MY_AWS_SECRET_ACCESS_KEY!,
+    }
+})
+
+const SES = new AWS.SESV2({ region: 'us-east-1' });
 
 interface EmailArgs {
     name?: string;
@@ -42,7 +49,7 @@ export default async function email(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function sendEmail(args: EmailArgs) {
-    const params: SESV2.SendEmailRequest = {
+    const params: AWS.SESV2.SendEmailRequest = {
         FromEmailAddress: process.env.BOT_EMAIL!,
         Destination: {
             ToAddresses: [process.env.PERSONAL_EMAIL!],
