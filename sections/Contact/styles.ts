@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Form from 'react-bootstrap/Form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface IndicatorProps {
     color?: string;
@@ -40,3 +41,13 @@ export const FormControlFeedback = styled(Form.Control.Feedback)<FeedbackProps>`
     right: 0;
     z-index: 1000;
 `;
+
+const rotate = keyframes`
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+`;
+
+export const RotatingIcon = styled(FontAwesomeIcon)`
+    animation: ${rotate} 1s linear infinite;
+    color: ${({ theme }) => theme.primary};
+`

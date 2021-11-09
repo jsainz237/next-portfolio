@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { a, config, useTransition } from 'react-spring';
 import { useForm, useFormState, Controller, Control } from 'react-hook-form';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
@@ -31,6 +32,8 @@ const schema: yup.SchemaOf<FormData> = yup.object({
 
 export const ContactForm: React.FC = () => {
     const [alert, setAlert] = useState<Alert>();
+    const [loading, setLoading] = useState<boolean>(false);
+
     const { control, handleSubmit, formState: { errors }, reset: resetForm } = useForm<FormData>({
         resolver: yupResolver(schema)
     });
@@ -49,6 +52,7 @@ export const ContactForm: React.FC = () => {
     }, [alert])
 
     const onSubmit = handleSubmit(async data => {
+        setLoading(true);
         const response = await fetch('/api/email', {
             method: 'POST',
             body: JSON.stringify(data),
@@ -58,6 +62,7 @@ export const ContactForm: React.FC = () => {
         });
         
         const res = await response.json();
+        setLoading(false);
         if(res.statusCode === 201) {
             setAlert({ type: 'success', message: 'Success' });
             resetForm({ 
@@ -110,6 +115,7 @@ export const ContactForm: React.FC = () => {
                 />
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Button type="submit" color="#a9b4bf" style={{ opacity: 1 }}>send message</Button>
+                {loading && <Styled.RotatingIcon size="lg" icon={faCircleNotch} />}
                 {alertTransition((styles, alertObj) =>
                     alertObj && 
                     <Alert 
