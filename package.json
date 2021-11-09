@@ -21,6 +21,7 @@
     "@react-three/fiber": "^7.0.6",
     "@svgr/webpack": "^5.5.0",
     "@types/three": "^0.131.0",
+    "aws-sdk": "^2.1024.0",
     "bootstrap": "^5.1.0",
     "d3-ease": "^3.0.1",
     "glslify": "^7.1.1",
