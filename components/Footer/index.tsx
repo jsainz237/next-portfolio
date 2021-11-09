@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
                             <FontAwesomeIcon icon={faFileAlt} color={theme.primary} size="2x" />
                         </Link>
                     </Styled.Links>
-                    <Link href="https://jsainz.me">
+                    <Link href={config.links.oldSite}>
                         <SmallText>Visit my old website here</SmallText>
                     </Link>
                     { isSmallScreen && <SmallText style={{ marginTop: '1rem' }}>Made by yours truly © 2021</SmallText> }
