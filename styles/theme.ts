@@ -18,6 +18,11 @@ const colors = {
     bg: "#0C0C0C",
     primary: "#A9B4BF",
     secondary: "#1E262F",
+
+    alerts: {
+        success: "#198754",
+        danger: "#dc3545",
+    },
 }
 
 export const theme = {

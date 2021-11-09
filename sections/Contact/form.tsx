@@ -7,7 +7,7 @@ import { useForm, useFormState, Controller, Control } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
-import { Button } from '@components/common';
+import { Alert, Button } from '@components/common';
 import * as Styled from './styles';
 
 type FormData = {
@@ -17,6 +17,11 @@ type FormData = {
     message: string;
 }
 
+type Alert = {
+    type: 'success' | 'error',
+    message: string;
+} | undefined;
+
 const schema: yup.SchemaOf<FormData> = yup.object({
     name: yup.string(),
     email: yup.string().email().required(),
@@ -25,13 +30,46 @@ const schema: yup.SchemaOf<FormData> = yup.object({
 }).defined();
 
 export const ContactForm: React.FC = () => {
-    const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
+    const [alert, setAlert] = useState<Alert>();
+    const { control, handleSubmit, formState: { errors }, reset: resetForm } = useForm<FormData>({
         resolver: yupResolver(schema)
     });
     const { isSubmitted } = useFormState({ control });
 
-    const onSubmit = handleSubmit(data => console.log(data));
+    const alertTransition = useTransition(alert, {
+        from: { maxWidth: 0, opacity: 1 },
+        enter: { maxWidth: 200, opacity: 1 },
+        leave: { maxWidth: 200, opacity: 0 },
+    });
 
+    useEffect(() => {
+        if(!!alert) {
+            setTimeout(() => setAlert(undefined), 5000);
+        }
+    }, [alert])
+
+    const onSubmit = handleSubmit(async data => {
+        const response = await fetch('/api/email', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+        });
+        
+        const res = await response.json();
+        if(res.statusCode === 201) {
+            setAlert({ type: 'success', message: 'Success' });
+            resetForm({ 
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+            });
+        } else {
+            setAlert({ type: 'error', message: 'Error' });
+        }
+    });
     
     return (
         <Form onSubmit={onSubmit} noValidate>
@@ -70,7 +108,20 @@ export const ContactForm: React.FC = () => {
                     rules={{ required: true }}
                     error={isSubmitted && errors.message}
                 />
-            <Button type="submit" color="#a9b4bf" style={{ opacity: 1 }}>send message</Button>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button type="submit" color="#a9b4bf" style={{ opacity: 1 }}>send message</Button>
+                {alertTransition((styles, alertObj) =>
+                    alertObj && 
+                    <Alert 
+                        direction="rtl"
+                        type={alertObj.type} 
+                        style={styles as any}
+                        onClose={() => setAlert(undefined)}
+                    >
+                        {alertObj.message}
+                    </Alert>
+                )}
+            </div>
         </Form>
     )
 }
