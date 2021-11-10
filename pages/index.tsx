@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import type { NextPage } from 'next'
 
 import Canvas from '@components/Canvas';
@@ -8,10 +9,15 @@ import { Contact } from '../sections/Contact';
 import { CornerBanner } from '@components/CornerBanner';
 
 const Home: NextPage = () => {
+  const [show, setShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    setTimeout(() => setShow(true), 300);
+  }, [])
 
   return (
     <>
-      <CornerBanner />
+      { show && <CornerBanner /> }
       <Canvas />
       <Intro />
       <Skills />
