@@ -24,8 +24,8 @@ export const Skills: React.FC = () => {
                 <SectionTitle>My Skills</SectionTitle>
                 <SectionText>
                     I enjoy working on all aspects of web development,
-                    from APIs and databases to the design and UX of the front-end. My favorite past
-                    time is learning new technologies, tools, and libraries!
+                    from APIs and databases to the design and UX of the front-end. My favorite pastimes are learning 
+                    new technologies, tools, and libraries!
                 </SectionText>
             </Col>
             <Col md={12} lg={6} style={{ position: "relative" }}>
