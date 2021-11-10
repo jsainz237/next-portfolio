@@ -21,7 +21,7 @@ interface Props {
 }
 
 export const Link: React.FC<Props> = ({ href, children }) => {
-    const isInternalHref = href.startsWith('/');
+    const isInternalHref = href.startsWith('/') || href.startsWith('#');
 
     return (
         <NextLink href={href} passHref>
