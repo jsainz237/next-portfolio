@@ -7,10 +7,13 @@ export const IntroWrapper = styled.div`
     height: 100vh;
     width: 100%;
 
+    & > * {
+        color: ${({ theme }) => theme.primary};
+    }
+
     h1 {
         font-family: 'Roboto Slab', serif;
         font-size: 5rem;
-        color: #a9b4bf;
 
         ${({ theme }) => theme.utils.down('md')} {
             font-size: 4rem;
@@ -22,7 +25,6 @@ export const IntroWrapper = styled.div`
     }
 
     p {
-        color: #a9b4bf;
         font-size: 1.8rem;
         font-weight: 400;
 
@@ -42,5 +44,17 @@ export const ContentIcons = styled.div`
 
     & > * {
         margin-right: 1.5rem;
+    }
+`
+
+export const DevNotesWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: ${({ theme }) => theme.primary};
+
+    & > *:not(:last-child) {
+        margin-right: 0.5rem;
     }
 `

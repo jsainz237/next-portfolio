@@ -2,7 +2,7 @@ import React from "react";
 import { a, config as springConfig, useTrail } from "@react-spring/web";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFileAlt, faCode } from '@fortawesome/free-solid-svg-icons';
 
 import config from 'config';
 import { Button, Link } from "@components/common";
@@ -25,6 +25,17 @@ export const Intro: React.FC = () => {
                 </Link>
                 <Link href={config.links.resume}>
                     <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />
+                </Link>
+                <div style={{
+                    fontSize: '2rem',
+                    fontWeight: 200,
+                    marginBottom: '0.25rem',
+                }}>|</div>
+                <Link href="/readme">
+                    <Styled.DevNotesWrapper>
+                        <div>DEV</div>
+                        <FontAwesomeIcon icon={faCode} />
+                    </Styled.DevNotesWrapper>
                 </Link>
             </Links>
         </Styled.IntroWrapper>
