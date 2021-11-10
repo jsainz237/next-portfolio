@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <CornerBanner />
+      { showBanner && <CornerBanner /> }
       <DynamicLazyCanvas />
       <Intro />
       <Skills />
