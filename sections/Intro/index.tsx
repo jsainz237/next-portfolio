@@ -16,7 +16,9 @@ export const Intro: React.FC = () => {
                 <p>I'm a full stack web developer based in Austin, TX</p>
             </Header>
             <Links>
-                <a href="#contact"><Button color="#a9b4bf" style={{ opacity: 1 }}>contact</Button></a>
+                <Link href="#contact">
+                    <Button color="#a9b4bf" style={{ opacity: 1 }}>contact</Button>
+                </Link>
                 <Link href={config.links.github}>
                     <FontAwesomeIcon icon={faGithub} color="#a9b4bf" size={"2x"} />
                 </Link>

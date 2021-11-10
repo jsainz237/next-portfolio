@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button } from '@components/common';
+import { Button, Link } from '@components/common';
 import * as Styled from './styles';
 
 export interface ProjectCardProps extends Styled.ProjectCardProps {
@@ -49,11 +49,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     }
                 </Styled.IconsWrapper>
                 <p>{description}</p>
-                <a href={link} target="_blank" rel="noreferrer">
+                <Link href={link}>
                     <Button style={{ pointerEvents: isPressable ? 'unset' : 'none' }}>
                         {buttonText}
                     </Button>
-                </a>
+                </Link>
             </Styled.ProjectContainer>
         </Styled.AspectRatio>
     )

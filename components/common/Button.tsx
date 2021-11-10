@@ -8,6 +8,8 @@ interface Props {
 }
 
 const StyledButton = styled.button<Props>`
+    display: flex;
+    align-items: center;
     background: none;
     color: ${({ color }) => color};
     font-size: 0.835rem;
@@ -17,18 +19,26 @@ const StyledButton = styled.button<Props>`
     opacity: 0;
     transition: all 0.3s ease;
 
+    & > * {
+        color: ${({ color }) => color};
+    }
+
     &:hover {
         opacity: 0.6 !important;
     }
 
-    span {
-        margin-left: 0.25rem;
+    & > *:not(:last-child) {
+        margin-right: 0.25rem;
     }
 `
 
-export const Button: React.FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({color = 'white', children, ...props }) => (
+export const Button: React.FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ( {color = 'white', children, ...props }) => (
     <StyledButton color={color} {...props}>
-        {children}
-        <span><FontAwesomeIcon icon={faChevronRight} color={color} /></span>
+        <div>{children}</div>
+        <i><FontAwesomeIcon
+            icon={faChevronRight} 
+            color={color} 
+            style={{ marginTop: 3 }}
+        /></i>
     </StyledButton>
 )

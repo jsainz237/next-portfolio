@@ -20,10 +20,17 @@ interface Props {
     href: string;
 }
 
-export const Link: React.FC<Props> = ({ href, children }) => (
-    <NextLink href={href} passHref>
-        <StyledA target={href.startsWith('/') ? undefined : "_blank"}>
-            {children}
-        </StyledA>
-    </NextLink>
-);
+export const Link: React.FC<Props> = ({ href, children }) => {
+    const isInternalHref = href.startsWith('/');
+
+    return (
+        <NextLink href={href} passHref>
+            <StyledA 
+                target={isInternalHref ? undefined : "_blank"}
+                rel={isInternalHref ? undefined : "noreferrer"}
+            >
+                {children}
+            </StyledA>
+        </NextLink>
+    )
+};
