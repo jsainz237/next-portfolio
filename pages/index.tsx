@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import type { NextPage } from 'next'
+import dynamic from 'next/dynamic';
 
-import Canvas from '@components/Canvas';
 import { Intro } from '../sections/Intro';
 import { Skills } from '../sections/Skills';
 import { Projects } from '../sections/Projects';
 import { Contact } from '../sections/Contact';
 import { CornerBanner } from '@components/CornerBanner';
+
+const DynamicLazyCanvas = dynamic(() => import('../components/Canvas'), { ssr: false });
 
 const Home: NextPage = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -18,7 +20,7 @@ const Home: NextPage = () => {
   return (
     <>
       { show && <CornerBanner /> }
-      <Canvas />
+      <DynamicLazyCanvas />
       <Intro />
       <Skills />
       <Projects />
