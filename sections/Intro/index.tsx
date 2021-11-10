@@ -28,7 +28,7 @@ export const Intro: React.FC = () => {
                 <Link href={config.links.resume}>
                     <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />
                 </Link>
-                <div style={{
+                {/* <div style={{
                     fontSize: '2rem',
                     fontWeight: 200,
                     marginBottom: '0.25rem',
@@ -38,7 +38,7 @@ export const Intro: React.FC = () => {
                         <div>DEV</div>
                         <FontAwesomeIcon icon={faCode} />
                     </Styled.DevNotesWrapper>
-                </Link>
+                </Link> */}
             </Links>
         </Styled.IntroWrapper>
     )
