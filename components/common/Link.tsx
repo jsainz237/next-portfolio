@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 
 const StyledA = styled.a`
     transition: opacity 0.3s ease;
-    color: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.primary};
     text-decoration: none;
 
     & > * {
@@ -11,8 +11,8 @@ const StyledA = styled.a`
     }
 
     &:hover, & > *:hover {
-        color: ${({ theme }) => theme.secondary};
-        opacity: 0.5;
+        color: ${({ theme }) => theme.primary};
+        opacity: 0.7;
     }
 `;
 
