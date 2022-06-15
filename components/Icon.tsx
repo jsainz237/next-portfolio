@@ -14,16 +14,19 @@ import MongoDB from 'public/icons/MongoDB_Logo.svg';
 import Sass from 'public/icons/Sass_Logo.svg';
 import StyledComponents from 'public/icons/styled-components-logo.svg';
 import Bootstrap from 'public/icons/Bootstrap_logo.svg';
+import Solidity from 'public/icons/Solidity_logo.svg';
 
 interface IconStruct {
     Icon: any;
     color?: string;
+    fill?: boolean;
 }
 
 const icons: Record<string, IconStruct> = {
+    Solidity: { Icon: Solidity, fill: true },
     HTML5: { Icon: HTML5, color: '#f16524' },
     CSS3: { Icon: CSS3, color: '#2965f1' },
-    Bootstrap: { Icon: Bootstrap },
+    // Bootstrap: { Icon: Bootstrap },
     ['Sass/Scss']: { Icon: Sass },
     ['Styled-Components']: { Icon: StyledComponents },
 
@@ -32,7 +35,7 @@ const icons: Record<string, IconStruct> = {
     React: { Icon: React, color: '#61dafb' },
     NodeJS: { Icon: NodeJS, color: '#3e863d' },
     Angular: { Icon: Angular, color: '#dd0031' },
-    NextJS: { Icon: NextJS },
+    NextJS: { Icon: NextJS, fill: true },
 
     GraphQL: { Icon: GraphQL, color: '#e632ad' },
     PostgreSQL: { Icon: PostgreSQL },

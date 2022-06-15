@@ -44,8 +44,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 <h1>{title}</h1>
                 <Styled.IconsWrapper>
                     {
-                        tech.map(({ Icon }, ind) => 
-                            <Icon key={ind} height={iconSize} width={iconSize} />) 
+                        tech.map(({ Icon, fill }, ind) => 
+                            <Icon key={ind} height={iconSize} width={iconSize} 
+                                style={fill && { background: 'white', padding: 2, borderRadius: 4 }} />
+                        )
                     }
                 </Styled.IconsWrapper>
                 <p>{description}</p>

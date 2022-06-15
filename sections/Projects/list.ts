@@ -3,6 +3,19 @@ import { ProjectCardProps } from '@components/ProjectCard';
 
 const projectsList: ProjectCardProps[] = [
     {
+        title: "Dots NFTs",
+        description: "A Next.js dApp written in Next.js with a Solidity smart contract to mint custom made NFTs",
+        img: "/project-screenshots/dots.png",
+        tech: [
+            Icons.Solidity,
+            Icons.Typescript,
+            Icons.NextJS,
+            Icons['Styled-Components'],
+        ],
+        buttonText: "Visit Website",
+        link: "https://nft-dots.com",
+    },
+    {
         title: "Todo List",
         description: "A simple todo list app. Styling and accessability were the biggest\
         focuses for this project.",
@@ -10,7 +23,7 @@ const projectsList: ProjectCardProps[] = [
         tech: [
             Icons.React,
             Icons.Typescript,
-            Icons.Bootstrap,
+            // Icons.Bootstrap,
             Icons['Styled-Components'],
         ],
         buttonText: "visit website",
@@ -29,19 +42,6 @@ const projectsList: ProjectCardProps[] = [
         ],
         buttonText: "view repository",
         link: "https://github.com/jsainz237/MC-Server-Panel-Demo"
-    },
-    {
-        title: "The Button",
-        description: "A social experiment to see how much a human can care about a simple button.",
-        img: "/project-screenshots/the-button.png",
-        tech: [
-            Icons.Angular,
-            Icons['Sass/Scss'],
-            Icons.NodeJS,
-            Icons.PostgreSQL,
-        ],
-        buttonText: "visit website",
-        link: "https://www.savethebutton.com",
     },
 ];
 
