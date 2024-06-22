@@ -6,7 +6,7 @@ If you're viewing this on my website, you can see the full repository [here](htt
 ### Styling and Design 🎨
 [Styled Components](https://styled-components.com/) along with [React Bootstrap](https://react-bootstrap.github.io/) is used for all the frontend styling. 
 
-The reason I decided to go with Styled Components rather than another choice,like Scss for example, is because of the ability to implement javascript within the styled components. This helps a lot with implementing scroll based styling.
+The reason I decided to go with Styled Components rather than another choice, like Scss for example, is because of the ability to implement javascript within the styled components. This helps a lot with implementing scroll based styling.
 ### 3D Elements 🌎
 Whenever I started working on this project, I discovered [three.js](https://threejs.org/) and knew I wanted to implement it in my site somehow.
 
