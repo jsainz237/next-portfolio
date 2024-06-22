@@ -13,6 +13,7 @@ import PostgreSQL from 'public/icons/Postgresql_elephant.svg';
 import MongoDB from 'public/icons/MongoDB_Logo.svg';
 import Sass from 'public/icons/Sass_Logo.svg';
 import StyledComponents from 'public/icons/styled-components-logo.svg';
+import Redux from 'public/icons/Redux.svg';
 import Bootstrap from 'public/icons/Bootstrap_logo.svg';
 import Solidity from 'public/icons/Solidity_logo.svg';
 
@@ -20,13 +21,14 @@ interface IconStruct {
     Icon: any;
     color?: string;
     fill?: boolean;
+    hidden?: boolean;
 }
 
 const icons: Record<string, IconStruct> = {
     Solidity: { Icon: Solidity, fill: true },
     HTML5: { Icon: HTML5, color: '#f16524' },
     CSS3: { Icon: CSS3, color: '#2965f1' },
-    // Bootstrap: { Icon: Bootstrap },
+    Bootstrap: { hidden: true, Icon: Bootstrap },
     ['Sass/Scss']: { Icon: Sass },
     ['Styled-Components']: { Icon: StyledComponents },
 
@@ -41,8 +43,9 @@ const icons: Record<string, IconStruct> = {
     PostgreSQL: { Icon: PostgreSQL },
     MongoDB: { Icon: MongoDB },
     MySQL: { Icon: MySQL },
+    Redux: { hidden: true, Icon: Redux, color: '#764abc' },
     
-    // Python: { Icon: Python, color: '#3e7aac' },
+    Python: { hidden: true, Icon: Python, color: '#3e7aac' },
 }
 
 icons['Styled-Components'].Icon.defaultProps = { fill: 'white' };

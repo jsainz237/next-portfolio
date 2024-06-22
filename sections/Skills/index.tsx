@@ -32,13 +32,13 @@ export const Skills: React.FC = () => {
                 <Styled.DecorationBar x={barXPos + xDiff} y={43} right/>
                 <Styled.SkillGrid>
                     {
-                        Object.entries(Icons).map(([name, { Icon }], ind) => {
-                            return (
+                        Object.values(Icons)
+                            .filter(({ hidden }) => !hidden)
+                            .map(({ Icon }, ind) => (
                                 <SkillCard key={ind} index={ind}>
                                     <Icon />
                                 </SkillCard>
-                            )
-                        })
+                            ))
                     }
                 </Styled.SkillGrid>
             </Col>

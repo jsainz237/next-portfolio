@@ -8,6 +8,7 @@ export interface ProjectCardProps extends Styled.ProjectCardProps {
     tech: any[];
     buttonText: string;
     link: string;
+    active: boolean;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
