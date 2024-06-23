@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { StyleSheetManager, ThemeProvider } from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import prism from 'prismjs';
 import "prismjs/components/prism-typescript";
@@ -10,6 +10,7 @@ import "prismjs/components/prism-typescript";
 import { Footer } from '@components/Footer';
 import { theme } from '../styles/theme';
 import '../styles/globals.scss'
+import isPropValid from '@emotion/is-prop-valid';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -37,14 +38,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Jesse Sainz</title>
         <meta charSet="UTF-8" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <StyledWrapper>
-          <Container style={{ paddingBottom: "1rem" }}>
-            <Component {...pageProps} />
-          </Container>
-        </StyledWrapper>
-        <Footer />
-      </ThemeProvider>
+      <StyleSheetManager shouldForwardProp={isPropValid}>
+        <ThemeProvider theme={theme}>
+          <StyledWrapper>
+            <Container style={{ paddingBottom: "1rem" }}>
+              <Component {...pageProps} />
+            </Container>
+          </StyledWrapper>
+          <Footer />
+        </ThemeProvider>
+      </StyleSheetManager>
     </>
   );
     

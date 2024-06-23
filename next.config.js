@@ -1,10 +1,9 @@
-const withTM = require('next-transpile-modules')([
-  'three/examples/jsm/loaders/GLTFLoader',
-])
-
 /** @type {import('next').NextConfig} */
-module.exports = withTM({
+module.exports = {
   reactStrictMode: true,
+  compiler: {
+    styledComponents: true
+  },
   
   webpack(config) {
     config.module.rules.push({
@@ -19,4 +18,4 @@ module.exports = withTM({
 
     return config;
   }
-})
+}

@@ -19,7 +19,7 @@ export const InputIndicator = styled.div<IndicatorProps>`
     transition: all 0.3s ease;
 `;
 
-export const FormControl = styled(Form.Control)`
+export const FormControl = styled(Form.Control as any)`
     position: relative;
     margin-bottom: 1rem;
     padding: 0.5rem 0.75rem;
@@ -34,7 +34,7 @@ export const FormControl = styled(Form.Control)`
 interface FeedbackProps {
     top?: boolean;
 }
-export const FormControlFeedback = styled(Form.Control.Feedback)<FeedbackProps>`
+export const FormControlFeedback = styled(Form.Control.Feedback as any)<FeedbackProps>`
     display: block;
     top: unset;
     bottom: ${({ top }) => top ? "100%" : 0};

@@ -13,7 +13,7 @@ export const FooterWrapper = styled.div`
 interface FooterContainerProps {
     $isSmallScreen?: boolean;
 }
-export const FooterContainer = styled(Container)<FooterContainerProps>`
+export const FooterContainer = styled(Container as any)<FooterContainerProps>`
     display: flex;
     flex-direction: ${({ $isSmallScreen }) => $isSmallScreen ? 'column' : 'row'};
     justify-content: space-between;

@@ -1,4 +1,4 @@
-import Python from 'public/icons/python-logo-notext.svg';
+import Python from 'public/icons/Python-logo-notext.svg';
 import React from 'public/icons/React-logo.svg';
 import JavaScript from 'public/icons/JavaScript-logo.svg';
 import Typescript from 'public/icons/Typescript-logo.svg';

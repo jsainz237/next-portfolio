@@ -15,7 +15,7 @@ export const ProjectsContainer = styled.div`
     }
 `;
 
-export const ProjectsListRow = styled(Row)`
+export const ProjectsListRow = styled(Row as any)`
     width: 100%;
     margin-top: 1rem;
 `;

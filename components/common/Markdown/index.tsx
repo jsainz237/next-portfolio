@@ -1,7 +1,7 @@
 import { useInterpolateScroll, useScreenSize } from '@utils/hooks';
 import * as Styled from './styles';
 
-export const Markdown: React.FC = ({ children }) => {
+export const Markdown: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     const [barX] = useInterpolateScroll([-45, 145]);
     const [styles] = useScreenSize({
         default: { height: '3rem' },

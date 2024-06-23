@@ -23,7 +23,7 @@ type Alert = {
     message: string;
 } | undefined;
 
-const schema: yup.SchemaOf<FormData> = yup.object({
+const schema: yup.ObjectSchema<FormData> = yup.object({
     name: yup.string(),
     email: yup.string().email().required(),
     subject: yup.string(),

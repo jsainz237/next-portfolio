@@ -28,23 +28,12 @@ export const Intro: React.FC = () => {
                 <Link href={config.links.resume}>
                     <FontAwesomeIcon icon={faFileAlt} color="#a9b4bf" size={"2x"} />
                 </Link>
-                {/* <div style={{
-                    fontSize: '2rem',
-                    fontWeight: 200,
-                    marginBottom: '0.25rem',
-                }}>|</div>
-                <Link href="/readme">
-                    <Styled.DevNotesWrapper>
-                        <div>DEV</div>
-                        <FontAwesomeIcon icon={faCode} />
-                    </Styled.DevNotesWrapper>
-                </Link> */}
             </Links>
         </Styled.IntroWrapper>
     )
 }
 
-const Header: React.FC = ({ children }) => {
+const Header: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const elems = React.Children.toArray(children);
     const trail = useTrail(elems.length, {
         from: { opacity: 0, y: -45 },
@@ -64,7 +53,7 @@ const Header: React.FC = ({ children }) => {
     </>
 }
 
-const Links: React.FC = ({ children }) => {
+const Links: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const elems = React.Children.toArray(children);
     const trail = useTrail(elems.length, {
         from: { opacity: 0, x: -45 },

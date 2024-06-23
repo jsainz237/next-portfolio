@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import NextLink from 'next/link';
 
-const StyledA = styled.a`
+const StyledLink = styled(NextLink)`
     transition: opacity 0.3s ease;
     color: ${({ theme }) => theme.primary};
     text-decoration: none;
@@ -18,19 +18,20 @@ const StyledA = styled.a`
 
 interface Props {
     href: string;
+    children: React.ReactNode;
 }
 
 export const Link: React.FC<Props> = ({ href, children }) => {
     const isInternalHref = href.startsWith('/') || href.startsWith('#');
 
     return (
-        <NextLink href={href} passHref>
-            <StyledA 
-                target={isInternalHref ? undefined : "_blank"}
-                rel={isInternalHref ? undefined : "noreferrer"}
-            >
-                {children}
-            </StyledA>
-        </NextLink>
+        <StyledLink
+            href={href}
+            passHref
+            target={isInternalHref ? undefined : "_blank"}
+            rel={isInternalHref ? undefined : "noreferrer"}
+        >
+            {children}
+        </StyledLink>
     )
 };
