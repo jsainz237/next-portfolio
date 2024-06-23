@@ -18,7 +18,7 @@ interface EmailArgs {
     message: string;
 }
 
-const schema: yup.SchemaOf<EmailArgs> = yup.object({
+const schema: yup.ObjectSchema<EmailArgs> = yup.object({
     name: yup.string(),
     email: yup.string().email().required(),
     subject: yup.string(),
